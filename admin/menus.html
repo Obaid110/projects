@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Menus | Karachi Eats Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="admin-brand"><i class="fa-solid fa-utensils"></i> Karachi<span>Eats</span></div>
+      <ul class="admin-menu">
+        <li><a href="index.html" class="admin-menu-link"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+        <li><a href="restaurants.html" class="admin-menu-link"><i class="fa-solid fa-store"></i> Restaurants</a></li>
+        <li><a href="menus.html" class="admin-menu-link active"><i class="fa-solid fa-bowl-food"></i> Food Menus</a></li>
+        <li><a href="orders.html" class="admin-menu-link"><i class="fa-solid fa-receipt"></i> Orders</a></li>
+        <li><a href="categories.html" class="admin-menu-link"><i class="fa-solid fa-list"></i> Categories</a></li>
+        <li><a href="delivery-areas.html" class="admin-menu-link"><i class="fa-solid fa-map-location-dot"></i> Delivery Areas</a></li>
+        <li><a href="offers.html" class="admin-menu-link"><i class="fa-solid fa-tags"></i> Offers & Coupons</a></li>
+        <li><a href="settings.html" class="admin-menu-link"><i class="fa-solid fa-gear"></i> Settings</a></li>
+      </ul>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <div>
+          <h1>Menu Items Management</h1>
+          <p class="text-muted">Manage dishes, prices in PKR, and availability across Karachi kitchens</p>
+        </div>
+        <button id="open-add-menu-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Dish</button>
+      </div>
+
+      <div style="margin-bottom: 24px; max-width: 360px;">
+        <label style="display: block; font-weight: 700; margin-bottom: 6px;">Filter by Partner Restaurant</label>
+        <select id="menu-restaurant-filter" class="form-select"></select>
+      </div>
+
+      <div class="table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Dish & Details</th>
+              <th>Restaurant</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="menus-tbody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Menu Item Modal -->
+  <div id="menu-modal" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Add Food Menu Item</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <form id="menu-form">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div style="grid-column: span 2;">
+            <label style="display: block; font-weight: 700; margin-bottom: 4px;">Restaurant *</label>
+            <select id="item-restaurant-select" class="form-select" required></select>
+          </div>
+          <div>
+            <label style="display: block; font-weight: 700; margin-bottom: 4px;">Item / Dish Name *</label>
+            <input type="text" id="item-name" class="form-control" placeholder="e.g. Special Beef Biryani" required />
+          </div>
+          <div>
+            <label style="display: block; font-weight: 700; margin-bottom: 4px;">Category *</label>
+            <select id="item-category" class="form-select">
+              <option value="Biryani & Rice">Biryani & Rice</option>
+              <option value="BBQ & Tikka">BBQ & Tikka</option>
+              <option value="Pakistani Karahi">Pakistani Karahi</option>
+              <option value="Burgers & Broast">Burgers & Broast</option>
+              <option value="Fast Food & Rolls">Fast Food & Rolls</option>
+              <option value="Chai & Drinks">Chai & Drinks</option>
+              <option value="Desserts & Sweets">Desserts & Sweets</option>
+            </select>
+          </div>
+          <div>
+            <label style="display: block; font-weight: 700; margin-bottom: 4px;">Price in PKR (Rs.) *</label>
+            <input type="number" id="item-price" class="form-control" placeholder="450" required />
+          </div>
+          <div>
+            <label style="display: block; font-weight: 700; margin-bottom: 4px;">Image URL</label>
+            <input type="url" id="item-image" class="form-control" placeholder="https://..." />
+          </div>
+          <div style="grid-column: span 2;">
+            <label style="display: block; font-weight: 700; margin-bottom: 4px;">Description</label>
+            <textarea id="item-desc" class="form-control" rows="2" placeholder="Ingredients, taste, serving size..."></textarea>
+          </div>
+          <div style="grid-column: span 2; display: flex; align-items: center; gap: 8px;">
+            <input type="checkbox" id="item-popular" />
+            <label for="item-popular" style="margin-bottom: 0; cursor: pointer;">Mark as Popular Item</label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 20px;">Save Dish to Menu</button>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="../assets/js/admin/menu-management.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Karachi Eats</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+
+<body
+  style="background: var(--bg-subtle); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;">
+  <div
+    style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius-lg); width: 100%; max-width: 440px; padding: 36px; box-shadow: var(--shadow-lg);">
+    <div style="text-align: center; margin-bottom: 24px;">
+      <a href="index.html" class="brand-logo" style="justify-content: center; margin-bottom: 12px;">
+        <i class="fa-solid fa-utensils"></i>
+        <span>Moon<span>Foods</span></span>
+      </a>
+      <h2>Create an Account</h2>
+      <p class="text-muted">Order your favorite food across Karachi</p>
+    </div>
+
+    <form id="register-form">
+      <div style="margin-bottom: 16px;">
+        <label style="display: block; font-weight: 700; margin-bottom: 6px;">Full Name</label>
+        <input type="text" id="reg-name" class="form-control" placeholder="e.g. Asad Siddiqui" required />
+      </div>
+      <div style="margin-bottom: 16px;">
+        <label style="display: block; font-weight: 700; margin-bottom: 6px;">Mobile Number</label>
+        <input type="tel" id="reg-phone" class="form-control" placeholder="03XX-XXXXXXX" required />
+      </div>
+      <div style="margin-bottom: 16px;">
+        <label style="display: block; font-weight: 700; margin-bottom: 6px;">Email Address</label>
+        <input type="email" id="reg-email" class="form-control" placeholder="your@email.com" required />
+      </div>
+      <div style="margin-bottom: 20px;">
+        <label style="display: block; font-weight: 700; margin-bottom: 6px;">Password</label>
+        <input type="password" id="reg-password" class="form-control" placeholder="Min 6 characters" required />
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" style="padding: 12px;">Create Account</button>
+    </form>
+
+    <p style="text-align: center; margin-top: 20px; font-size: 0.9rem;">
+      Already have an account? <a href="login.html" style="color: var(--primary); font-weight: 700;">Sign In</a>
+    </p>
+  </div>
+
+  <script type="module">
+    import { Auth } from './assets/js/auth.js';
+    document.getElementById('register-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value;
+      const phone = document.getElementById('reg-phone').value;
+      const email = document.getElementById('reg-email').value;
+      const pass = document.getElementById('reg-password').value;
+      const res = Auth.register(name, email, phone, pass);
+      if (res.success) {
+        window.location.href = "index.html";
+      }
+    });
+  </script>
+</body>
+
+</html>

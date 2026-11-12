@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Order Confirmed | Karachi Eats</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/checkout.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body style="background: var(--bg-subtle);">
+  <div class="container">
+    <div class="success-card">
+      <div class="success-icon-wrap">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h1 style="font-size: 1.85rem;">Order Confirmed!</h1>
+      <p class="text-muted" style="margin-top: 6px; font-size: 0.95rem;">Shukriya! Your food order has been placed with the restaurant.</p>
+      
+      <div id="order-details-box" style="margin: 24px 0; text-align: left; background: var(--bg-subtle); padding: 20px; border-radius: var(--radius-lg); border: 1px solid var(--border-color); font-size: 0.92rem;">
+        Loading order details...
+      </div>
+
+      <!-- WhatsApp Dispatch CTA -->
+      <a id="whatsapp-order-link" href="#" target="_blank" class="btn whatsapp-cta-btn btn-block">
+        <i class="fa-brands fa-whatsapp" style="font-size: 1.25rem;"></i> Send to Restaurant WhatsApp
+      </a>
+
+      <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <a href="index.html" class="btn btn-sm btn-outline"><i class="fa-solid fa-house"></i> Back to Home</a>
+        <a href="restaurants.html" class="btn btn-sm btn-outline"><i class="fa-solid fa-utensils"></i> Order More Food</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { Storage } from './assets/js/storage.js';
+    import { formatPKR, getQueryParam } from './assets/js/utils.js';
+    import { generateWhatsAppOrderUrl } from './assets/js/whatsapp.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const orderId = getQueryParam('orderId');
+      const orders = Storage.getOrders();
+      const order = orders.find(o => o.id === orderId) || orders[0];
+
+      if (order) {
+        const detailsBox = document.getElementById('order-details-box');
+        detailsBox.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <strong style="font-size: 1.05rem;">Order ID: #${order.id}</strong>
+            <span class="badge badge-success"><i class="fa-solid fa-clock"></i> ${order.status}</span>
+          </div>
+          <p><strong><i class="fa-solid fa-store" style="color: var(--primary);"></i> Restaurant:</strong> ${order.restaurantName}</p>
+          <p><strong><i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> Area:</strong> ${order.customer.area}</p>
+          <p><strong><i class="fa-solid fa-map-pin" style="color: var(--primary);"></i> Address:</strong> ${order.customer.address}</p>
+          <p><strong><i class="fa-solid fa-wallet" style="color: var(--primary);"></i> Payment:</strong> ${order.paymentMethod}</p>
+          <hr style="margin: 12px 0; border: none; border-top: 1px solid var(--border-color);">
+          <div style="font-size: 0.9rem; line-height: 1.7;">
+            ${order.items.map(i => `<div>${i.name} <strong>x ${i.quantity}</strong> = ${formatPKR(i.price * i.quantity)}</div>`).join('')}
+          </div>
+          <div style="margin-top: 14px; font-weight: 800; font-size: 1.15rem; color: var(--primary); border-top: 1px dashed var(--border-color); padding-top: 10px;">
+            Total Amount: ${formatPKR(order.total)}
+          </div>
+        `;
+
+        const waBtn = document.getElementById('whatsapp-order-link');
+        waBtn.href = generateWhatsAppOrderUrl(order);
+      }
+    });
+  </script>
+</body>
+</html>

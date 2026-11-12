@@ -1,0 +1,193 @@
+/* ==========================================================================
+   Karachi Eats - Checkout & Success Styling (Mobile-App Optimized)
+   ========================================================================== */
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 36px;
+  padding: 32px 0 80px;
+}
+
+.checkout-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-xs);
+}
+
+.checkout-card h3 {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.25rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.col-span-2 { grid-column: span 2; }
+
+/* Payment Methods */
+.payment-methods-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.payment-option-card {
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  background: #FFFFFF;
+}
+
+.payment-option-card input[type="radio"] {
+  accent-color: var(--primary);
+  width: 18px;
+  height: 18px;
+}
+
+.payment-option-card:hover {
+  border-color: var(--primary);
+}
+
+.payment-option-card:has(input:checked) {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  box-shadow: 0 4px 12px rgba(255, 71, 34, 0.1);
+}
+
+/* Order Summary */
+.summary-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 92px;
+}
+
+.summary-title {
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.summary-restaurant {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  background: var(--bg-subtle);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.summary-items-list {
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 14px 0;
+  margin-bottom: 14px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.summary-item-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.summary-item-line:last-child {
+  margin-bottom: 0;
+}
+
+.coupon-box {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.calc-row span:last-child {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.calc-row.total-row {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  border-top: 2px dashed var(--border-color);
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.calc-row.total-row span:last-child {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+/* Success Celebration Page */
+.success-card {
+  max-width: 600px;
+  margin: 40px auto;
+  text-align: center;
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 40px 24px;
+  box-shadow: var(--shadow-md);
+}
+
+.success-icon-wrap {
+  width: 76px;
+  height: 76px;
+  background: var(--success-bg);
+  color: var(--success);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+}
+
+.whatsapp-cta-btn {
+  background: #25D366;
+  color: #FFFFFF;
+  font-size: 1.05rem;
+  padding: 16px 24px;
+  border-radius: var(--radius-full);
+  margin-top: 20px;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  font-weight: 700;
+}
+
+.whatsapp-cta-btn:hover {
+  background: #1EBE5D;
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+}

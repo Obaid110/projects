@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Karachi Eats</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="admin-brand"><i class="fa-solid fa-utensils"></i> Karachi<span>Eats</span> Admin</div>
+      <ul class="admin-menu">
+        <li><a href="index.html" class="admin-menu-link active"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+        <li><a href="restaurants.html" class="admin-menu-link"><i class="fa-solid fa-store"></i> Restaurants</a></li>
+        <li><a href="menus.html" class="admin-menu-link"><i class="fa-solid fa-bowl-food"></i> Food Menus</a></li>
+        <li><a href="orders.html" class="admin-menu-link"><i class="fa-solid fa-receipt"></i> Orders</a></li>
+        <li><a href="categories.html" class="admin-menu-link"><i class="fa-solid fa-list"></i> Categories</a></li>
+        <li><a href="delivery-areas.html" class="admin-menu-link"><i class="fa-solid fa-map-location-dot"></i> Delivery Areas</a></li>
+        <li><a href="offers.html" class="admin-menu-link"><i class="fa-solid fa-tags"></i> Offers & Coupons</a></li>
+        <li><a href="settings.html" class="admin-menu-link"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        <li><a href="../index.html" class="admin-menu-link" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Storefront</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <div>
+          <h1>Operations Overview</h1>
+          <p class="text-muted">Live performance across Karachi delivery network</p>
+        </div>
+      </div>
+
+      <!-- KPI Metrics -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <span class="metric-label">Total Restaurants</span>
+          <div id="metric-total-restaurants" class="metric-value">0</div>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Menu Items</span>
+          <div id="metric-total-menus" class="metric-value">0</div>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Total Orders</span>
+          <div id="metric-total-orders" class="metric-value">0</div>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Active / Pending</span>
+          <div id="metric-pending-orders" class="metric-value" style="color: var(--warning);">0</div>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Delivered Orders</span>
+          <div id="metric-completed-orders" class="metric-value" style="color: var(--success);">0</div>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Total Revenue</span>
+          <div id="metric-total-revenue" class="metric-value" style="color: var(--primary);">Rs. 0</div>
+        </div>
+      </div>
+
+      <!-- Recent Orders Table -->
+      <div class="table-card">
+        <div style="padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+          <h3>Recent Customer Orders</h3>
+          <a href="orders.html" class="btn btn-sm btn-outline">View All Orders</a>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Restaurant</th>
+              <th>Items</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="recent-orders-tbody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../assets/js/admin/dashboard.js"></script>
+</body>
+</html>

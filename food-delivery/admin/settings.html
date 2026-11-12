@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Settings | Karachi Eats Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="admin-brand"><i class="fa-solid fa-utensils"></i> Karachi<span>Eats</span></div>
+      <ul class="admin-menu">
+        <li><a href="index.html" class="admin-menu-link"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+        <li><a href="restaurants.html" class="admin-menu-link"><i class="fa-solid fa-store"></i> Restaurants</a></li>
+        <li><a href="menus.html" class="admin-menu-link"><i class="fa-solid fa-bowl-food"></i> Food Menus</a></li>
+        <li><a href="orders.html" class="admin-menu-link"><i class="fa-solid fa-receipt"></i> Orders</a></li>
+        <li><a href="categories.html" class="admin-menu-link"><i class="fa-solid fa-list"></i> Categories</a></li>
+        <li><a href="delivery-areas.html" class="admin-menu-link"><i class="fa-solid fa-map-location-dot"></i> Delivery Areas</a></li>
+        <li><a href="offers.html" class="admin-menu-link"><i class="fa-solid fa-tags"></i> Offers & Coupons</a></li>
+        <li><a href="settings.html" class="admin-menu-link active"><i class="fa-solid fa-gear"></i> Settings</a></li>
+      </ul>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <div>
+          <h1>Platform Settings</h1>
+          <p class="text-muted">Configure WhatsApp ordering, currency, and store details</p>
+        </div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 32px; max-width: 680px;">
+        <form id="settings-form">
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; font-weight: 700; margin-bottom: 6px;">Business Name</label>
+            <input type="text" id="set-business-name" class="form-control" value="Karachi Eats" required />
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; font-weight: 700; margin-bottom: 6px;">
+              <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> WhatsApp Order Dispatch Number
+            </label>
+            <input type="text" id="set-whatsapp" class="form-control" value="923001234567" required />
+            <small class="text-muted">Format: 923XXXXXXXXX (country code 92 without +)</small>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; font-weight: 700; margin-bottom: 6px;">Support Phone Number</label>
+            <input type="text" id="set-phone" class="form-control" value="+92 21 34567890" required />
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; font-weight: 700; margin-bottom: 6px;">Support Email</label>
+            <input type="email" id="set-email" class="form-control" value="orders@karachieats.pk" required />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+            <div>
+              <label style="display: block; font-weight: 700; margin-bottom: 6px;">Currency</label>
+              <input type="text" id="set-currency" class="form-control" value="PKR (Rs.)" disabled />
+            </div>
+            <div>
+              <label style="display: block; font-weight: 700; margin-bottom: 6px;">Default Delivery Fee (PKR)</label>
+              <input type="number" id="set-def-fee" class="form-control" value="150" required />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="padding: 12px 24px;">Save Configuration</button>
+          <button type="button" id="reset-storage-btn" class="btn btn-outline" style="margin-left: 12px; color: var(--danger); border-color: var(--danger);">
+            <i class="fa-solid fa-rotate-left"></i> Reset Seed Data
+          </button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { Storage } from '../assets/js/storage.js';
+    import { showToast } from '../assets/js/utils.js';
+    import { Auth } from '../assets/js/auth.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Auth.requireAdmin();
+      const settings = Storage.getSettings();
+      if (settings.businessName) document.getElementById('set-business-name').value = settings.businessName;
+      if (settings.whatsApp) document.getElementById('set-whatsapp').value = settings.whatsApp;
+      if (settings.phone) document.getElementById('set-phone').value = settings.phone;
+      if (settings.email) document.getElementById('set-email').value = settings.email;
+      if (settings.defaultDeliveryFee) document.getElementById('set-def-fee').value = settings.defaultDeliveryFee;
+
+      document.getElementById('settings-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const updated = {
+          businessName: document.getElementById('set-business-name').value,
+          whatsApp: document.getElementById('set-whatsapp').value,
+          phone: document.getElementById('set-phone').value,
+          email: document.getElementById('set-email').value,
+          defaultDeliveryFee: parseInt(document.getElementById('set-def-fee').value) || 150
+        };
+        Storage.saveSettings(updated);
+        showToast("Settings saved successfully!", "success");
+      });
+
+      document.getElementById('reset-storage-btn').addEventListener('click', () => {
+        if (confirm("Reset all 200+ restaurants, sample orders, and menus back to default seed?")) {
+          Storage.resetAllData();
+          showToast("Local data reset to initial seeds!", "info");
+          setTimeout(() => location.reload(), 600);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

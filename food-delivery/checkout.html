@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Checkout | Karachi Eats</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/checkout.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-utensils"></i>
+        <span>Moon<span>Foods</span></span>
+      </a>
+      <span style="font-weight: 700; font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-lock"
+          style="color: var(--primary);"></i> Secure Checkout</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="checkout-layout">
+      <!-- Checkout Form -->
+      <form id="checkout-form">
+        <!-- Delivery Details -->
+        <div class="checkout-card">
+          <h3><i class="fa-solid fa-truck-fast text-primary"></i> Delivery Details</h3>
+          <div class="form-grid">
+            <div>
+              <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.88rem;">Full Name
+                *</label>
+              <input type="text" id="cust-name" class="form-control" placeholder="e.g. Bilal Ahmed" required />
+            </div>
+            <div>
+              <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.88rem;">Mobile Number
+                (Rider & WhatsApp) *</label>
+              <input type="tel" id="cust-phone" class="form-control" placeholder="03XX-XXXXXXX" required />
+            </div>
+            <div class="col-span-2">
+              <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.88rem;">Karachi
+                Neighborhood / Area *</label>
+              <select id="checkout-area" class="form-select" required></select>
+            </div>
+            <div class="col-span-2">
+              <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.88rem;">Complete Street
+                Address (House/Flat#, Block, Landmark) *</label>
+              <textarea id="cust-address" class="form-control" rows="2"
+                placeholder="e.g. Flat 301, Al-Ghafoor Heights, Block 7, Gulshan-e-Iqbal..." required></textarea>
+            </div>
+            <div class="col-span-2">
+              <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.88rem;">Google Maps
+                Location Link (Optional)</label>
+              <input type="url" id="cust-map-link" class="form-control" placeholder="https://maps.app.goo.gl/..." />
+            </div>
+            <div class="col-span-2">
+              <label style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 0.88rem;">Rider
+                Instructions</label>
+              <input type="text" id="cust-notes" class="form-control"
+                placeholder="e.g. Ring bell twice, deliver at front gate" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="checkout-card">
+          <h3><i class="fa-solid fa-credit-card text-primary"></i> Payment Method</h3>
+          <div class="payment-methods-grid">
+            <label class="payment-option-card">
+              <input type="radio" name="payment_method" value="Cash on Delivery" checked />
+              <div>
+                <strong>Cash on Delivery (COD)</strong>
+                <small style="display: block; color: var(--text-muted); font-size: 0.8rem;">Pay cash when your food
+                  arrives</small>
+              </div>
+            </label>
+            <label class="payment-option-card">
+              <input type="radio" name="payment_method" value="Online Payment (JazzCash / EasyPaisa)" />
+              <div>
+                <strong>JazzCash / EasyPaisa / Card</strong>
+                <small style="display: block; color: var(--text-muted); font-size: 0.8rem;">Instant mobile wallet or
+                  debit card</small>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" style="padding: 15px; font-size: 1.1rem;">
+          <i class="fa-solid fa-circle-check"></i> Place Order Now
+        </button>
+      </form>
+
+      <!-- Order Summary Card -->
+      <aside id="checkout-summary-container"></aside>
+    </div>
+  </main>
+
+  <script type="module">
+    import { initCheckoutPage } from './assets/js/checkout.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      initCheckoutPage();
+    });
+  </script>
+</body>
+
+</html>

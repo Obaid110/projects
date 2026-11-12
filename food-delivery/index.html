@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Karachi Eats | Online Food Delivery in Karachi, Pakistan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/restaurants.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-utensils"></i>
+        <span>Moon<span>Foods</span></span>
+      </a>
+
+      <!-- Location Selector -->
+      <button id="location-selector-btn" class="location-picker-btn">
+        <i class="fa-solid fa-location-dot"></i>
+        <span class="active-location-name">Karachi</span>
+        <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i>
+      </button>
+
+      <!-- Navigation Links (Desktop) -->
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="restaurants.html" class="nav-link">Restaurants</a>
+        <a href="offers.html" class="nav-link">Deals & Offers</a>
+        <a href="admin/index.html" class="nav-link">Admin</a>
+      </nav>
+
+      <!-- Actions (Cart & Auth) -->
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button class="btn btn-outline cart-drawer-trigger">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span>Cart</span>
+          <span class="cart-count-badge" style="display: none;">0</span>
+        </button>
+        <div id="auth-nav-container"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1 class="hero-title">Taste the Soul of <span>Karachi</span></h1>
+      <p class="hero-subtitle">From student biryani to seaside Kolachi karahi — order from 200+ authentic restaurants
+        delivered fast across Karachi.</p>
+
+      <form id="hero-search-form" class="search-bar-wrap">
+        <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted); font-size: 1.1rem;"></i>
+        <input type="text" id="hero-search-input" placeholder="Search Biryani, Burgers, Karahi, Pizza..." />
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+      </form>
+
+      <!-- Quick Cuisines Chips -->
+      <div
+        style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; flex-wrap: wrap;">
+        <span
+          style="font-size: 0.82rem; font-weight: 700; color: #E5E7EB; text-transform: uppercase; letter-spacing: 0.5px;">Trending:</span>
+        <a href="restaurants.html?category=biryani" class="quick-chip"
+          style="background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); color: #fff; padding: 5px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600;"><i
+            class="fa-solid fa-bowl-rice"></i> Biryani</a>
+        <a href="restaurants.html?category=bbq" class="quick-chip"
+          style="background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); color: #fff; padding: 5px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600;"><i
+            class="fa-solid fa-fire-burner"></i> BBQ Tikka</a>
+        <a href="restaurants.html?category=pakistani" class="quick-chip"
+          style="background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); color: #fff; padding: 5px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600;"><i
+            class="fa-solid fa-utensils"></i> Karahi</a>
+        <a href="restaurants.html?category=burgers" class="quick-chip"
+          style="background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); color: #fff; padding: 5px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600;"><i
+            class="fa-solid fa-burger"></i> Broast</a>
+        <a href="restaurants.html?category=pizza" class="quick-chip"
+          style="background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); color: #fff; padding: 5px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600;"><i
+            class="fa-solid fa-pizza-slice"></i> Pizza</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Popular Cuisines</h2>
+          <p class="text-muted" style="font-size: 0.9rem;">Authentic Karachi tastes loved by the city</p>
+        </div>
+        <a href="restaurants.html" class="btn btn-sm btn-outline">View All (12)</a>
+      </div>
+      <div id="categories-slider" class="categories-scroll"></div>
+    </div>
+  </section>
+
+  <!-- Featured Restaurants -->
+  <section style="padding: 50px 0;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Featured Restaurants</h2>
+          <p class="text-muted" style="font-size: 0.9rem;">Trending kitchens delivering fast near you</p>
+        </div>
+        <a href="restaurants.html" class="btn btn-sm btn-outline">Explore 200+ <i
+            class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div id="featured-restaurants-grid" class="restaurants-grid"></div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section
+    style="background: #FFFFFF; padding: 60px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 40px;">
+        <h2 class="section-title">How Karachi Eats Works</h2>
+        <p class="text-muted" style="font-size: 0.9rem;">Delicious food delivered fast to your doorstep in 3 simple
+          steps</p>
+      </div>
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; text-align: center;">
+        <div
+          style="background: var(--bg-subtle); padding: 30px 20px; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+          <div
+            style="width: 64px; height: 64px; background: var(--primary-light); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px;">
+            <i class="fa-solid fa-map-pin"></i>
+          </div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 6px;">1. Choose Location</h3>
+          <p class="text-muted" style="font-size: 0.88rem;">Select from 14 Karachi areas: DHA, Gulshan, Johar, Clifton,
+            North Nazimabad and more.</p>
+        </div>
+        <div
+          style="background: var(--bg-subtle); padding: 30px 20px; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+          <div
+            style="width: 64px; height: 64px; background: var(--primary-light); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px;">
+            <i class="fa-solid fa-bowl-rice"></i>
+          </div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 6px;">2. Pick Favorite Food</h3>
+          <p class="text-muted" style="font-size: 0.88rem;">Browse menus from 200+ eateries, customize your plate, and
+            add to cart.</p>
+        </div>
+        <div
+          style="background: var(--bg-subtle); padding: 30px 20px; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+          <div
+            style="width: 64px; height: 64px; background: #ECFDF5; color: #10B981; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px;">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 6px;">3. WhatsApp or COD</h3>
+          <p class="text-muted" style="font-size: 0.88rem;">Dispatch your bill instantly via WhatsApp or choose Cash on
+            Delivery at your door.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Rated Section -->
+  <section style="padding: 50px 0;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Highest Rated in Karachi (4.7+ ★)</h2>
+          <p class="text-muted" style="font-size: 0.9rem;">Karachi's culinary landmarks with verified ratings</p>
+        </div>
+        <a href="restaurants.html?sort=rating" class="btn btn-sm btn-outline">See All</a>
+      </div>
+      <div id="top-rated-restaurants-grid" class="restaurants-grid"></div>
+    </div>
+  </section>
+
+  <!-- Customer Testimonials -->
+  <section style="background: #FFFFFF; padding: 60px 0; border-top: 1px solid var(--border-color);">
+    <div class="container">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 40px;">
+        <h2 class="section-title">Karachi Loves Karachi Eats</h2>
+        <p class="text-muted" style="font-size: 0.9rem;">Real reviews from our food-loving community across Sindh</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
+        <div
+          style="background: var(--bg-subtle); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+          <div style="color: #F59E0B; margin-bottom: 10px; font-size: 0.85rem;"><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i></div>
+          <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 14px;">"Best way to order hot Biryani and Malai
+            Boti in Gulshan. The WhatsApp order button with the prefilled breakdown is genius!"</p>
+          <strong>Saad Farooqi</strong><br><small class="text-muted">Gulshan-e-Iqbal, Karachi</small>
+        </div>
+        <div
+          style="background: var(--bg-subtle); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+          <div style="color: #F59E0B; margin-bottom: 10px; font-size: 0.85rem;"><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i></div>
+          <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 14px;">"We ordered late night Karahi and Naan to
+            DHA Phase 6. Arrived steaming hot in 35 minutes. Top notch customer service!"</p>
+          <strong>Mahnoor Khan</strong><br><small class="text-muted">DHA Phase 6, Karachi</small>
+        </div>
+        <div
+          style="background: var(--bg-subtle); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+          <div style="color: #F59E0B; margin-bottom: 10px; font-size: 0.85rem;"><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i></div>
+          <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 14px;">"The selection of 200+ restaurants across
+            all Karachi sectors is incredible. Easy checkout with Cash on Delivery."</p>
+          <strong>Danish Rauf</strong><br><small class="text-muted">North Nazimabad, Karachi</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand"><i class="fa-solid fa-utensils"></i> Karachi<span>Eats</span></div>
+          <p style="font-size: 0.9rem; line-height: 1.6;">Karachi's dedicated commercial food delivery network.
+            Connecting foodies to 200+ top kitchens across Karachi, Sindh, Pakistan.</p>
+          <p style="margin-top: 14px; font-size: 0.88rem;"><i class="fa-brands fa-whatsapp text-success"></i> +92 300
+            1234567 | <i class="fa-solid fa-envelope"></i> orders@karachieats.pk</p>
+        </div>
+        <div class="footer-col">
+          <h4>Neighborhoods</h4>
+          <ul>
+            <li><a href="restaurants.html?area=gulshan">Gulshan-e-Iqbal</a></li>
+            <li><a href="restaurants.html?area=dha">DHA (Defence)</a></li>
+            <li><a href="restaurants.html?area=clifton">Clifton</a></li>
+            <li><a href="restaurants.html?area=johar">Gulistan-e-Johar</a></li>
+            <li><a href="restaurants.html?area=north_nazimabad">North Nazimabad</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Popular Cuisines</h4>
+          <ul>
+            <li><a href="restaurants.html?category=biryani">Karachi Biryani</a></li>
+            <li><a href="restaurants.html?category=bbq">BBQ & Tikka</a></li>
+            <li><a href="restaurants.html?category=pakistani">Shinwari Karahi</a></li>
+            <li><a href="restaurants.html?category=burgers">Crispy Broast</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Administration</h4>
+          <p style="font-size: 0.88rem;">Manage partner kitchens, menus, and delivery zones.</p>
+          <a href="admin/index.html" class="btn btn-sm btn-outline"
+            style="margin-top: 12px; color: #fff; border-color: #374151;">Admin Dashboard</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Karachi Eats (Pvt.) Ltd. All rights reserved.</span>
+        <span>Built with ❤️ in Karachi, Pakistan 🇵🇰</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer Component -->
+  <div id="cart-overlay" class="cart-drawer-overlay"></div>
+  <aside id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3><i class="fa-solid fa-bag-shopping" style="color: var(--primary);"></i> Your Cart</h3>
+      <button id="close-cart-drawer" class="modal-close">&times;</button>
+    </div>
+    <div id="cart-items-container" class="cart-drawer-body"></div>
+    <div id="cart-drawer-footer" class="cart-drawer-footer" style="display: none;"></div>
+  </aside>
+
+  <!-- Modular Scripts -->
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>All Restaurants in Karachi | Karachi Eats</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/restaurants.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo">
+        <i class="fa-solid fa-utensils"></i>
+        <span>Moon<span>Foods</span></span>
+      </a>
+      <button id="location-selector-btn" class="location-picker-btn">
+        <i class="fa-solid fa-location-dot"></i>
+        <span class="active-location-name">Karachi</span>
+        <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i>
+      </button>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="restaurants.html" class="nav-link active">Restaurants</a>
+        <a href="offers.html" class="nav-link">Deals & Offers</a>
+        <a href="admin/index.html" class="nav-link">Admin</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button class="btn btn-outline cart-drawer-trigger">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span>Cart</span>
+          <span class="cart-count-badge" style="display: none;">0</span>
+        </button>
+        <div id="auth-nav-container"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Marketplace Layout -->
+  <main class="container">
+    <!-- Mobile Quick Filter Pills Bar -->
+    <div class="mobile-filter-bar">
+      <button id="toggle-filter-btn" class="quick-filter-pill"
+        style="background: var(--primary); color: #fff; border-color: var(--primary);">
+        <i class="fa-solid fa-sliders"></i> Filters
+      </button>
+      <button id="pill-deals" class="quick-filter-pill">
+        <i class="fa-solid fa-tag"></i> Offers & Deals
+      </button>
+      <button id="pill-top-rated" class="quick-filter-pill">
+        <i class="fa-solid fa-star" style="color: #F59E0B;"></i> 4.5+ ★
+      </button>
+      <button id="pill-fast-delivery" class="quick-filter-pill">
+        <i class="fa-solid fa-bolt"></i> Fast Delivery
+      </button>
+    </div>
+
+    <div class="restaurants-layout">
+      <!-- Filter Sidebar (Desktop sidebar / Mobile full sheet) -->
+      <aside class="filter-sidebar">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+          <h3 style="margin-bottom: 0;"><i class="fa-solid fa-sliders text-primary"></i> Filter Eateries</h3>
+          <button id="close-filter-btn" class="modal-close" style="display: none;">&times;</button>
+        </div>
+
+        <div class="filter-group">
+          <label for="restaurant-search-input"><i class="fa-solid fa-magnifying-glass"></i> Search by Name</label>
+          <input type="text" id="restaurant-search-input" class="form-control"
+            placeholder="e.g. Student Biryani, Kolachi..." />
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-area"><i class="fa-solid fa-location-dot"></i> Karachi Neighborhood</label>
+          <select id="filter-area" class="form-select">
+            <option value="all">All Karachi</option>
+            <option value="gulshan">Gulshan-e-Iqbal</option>
+            <option value="johar">Gulistan-e-Johar</option>
+            <option value="dha">DHA (Defence)</option>
+            <option value="clifton">Clifton</option>
+            <option value="north_nazimabad">North Nazimabad</option>
+            <option value="pechs">PECHS</option>
+            <option value="bahadurabad">Bahadurabad</option>
+            <option value="saddar">Saddar</option>
+            <option value="fb_area">Federal B Area</option>
+            <option value="malir">Malir Cantonment</option>
+            <option value="korangi">Korangi</option>
+            <option value="nazimabad">Nazimabad</option>
+            <option value="shah_faisal">Shah Faisal Colony</option>
+            <option value="buffer_zone">Buffer Zone</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-category"><i class="fa-solid fa-utensils"></i> Cuisine Type</label>
+          <select id="filter-category" class="form-select">
+            <option value="all">All Cuisines</option>
+            <option value="biryani">Biryani & Rice</option>
+            <option value="bbq">BBQ & Tikka</option>
+            <option value="pakistani">Pakistani Karahi</option>
+            <option value="burgers">Burgers & Broast</option>
+            <option value="pizza">Pizza & Italian</option>
+            <option value="fastfood">Fast Food & Rolls</option>
+            <option value="chinese">Chinese & Asian</option>
+            <option value="seafood">Fish & Seafood</option>
+            <option value="desserts">Desserts & Sweets</option>
+            <option value="drinks">Chai & Drinks</option>
+            <option value="healthy">Salads & Healthy</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-sort"><i class="fa-solid fa-arrow-down-wide-short"></i> Sort Results</label>
+          <select id="filter-sort" class="form-select">
+            <option value="recommended">Recommended</option>
+            <option value="rating">Highest Rating</option>
+            <option value="delivery_time">Fastest Delivery</option>
+            <option value="delivery_fee">Lowest Delivery Fee</option>
+            <option value="min_order">Minimum Order</option>
+          </select>
+        </div>
+
+        <div class="filter-group"
+          style="display: flex; align-items: center; gap: 10px; background: var(--bg-subtle); padding: 10px 12px; border-radius: var(--radius-sm);">
+          <input type="checkbox" id="filter-discount"
+            style="accent-color: var(--primary); width: 18px; height: 18px;" />
+          <label for="filter-discount" style="margin-bottom: 0; cursor: pointer; font-size: 0.9rem;">Deals & Free
+            Delivery Only</label>
+        </div>
+
+        <button id="apply-mobile-filter-btn" class="btn btn-primary btn-block" style="display: none; margin-top: 16px;">
+          Apply Filters
+        </button>
+      </aside>
+
+      <!-- Main Restaurant Grid -->
+      <section style="padding: 0 !important;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+          <h2 id="results-count" style="font-size: 1.35rem;">Loading Restaurants...</h2>
+        </div>
+        <div id="restaurants-grid" class="restaurants-grid"></div>
+        <div style="text-align: center; margin-top: 36px;">
+          <button id="load-more-btn" class="btn btn-outline" style="display: none; padding: 12px 28px;">
+            <i class="fa-solid fa-angles-down"></i> Load More Restaurants
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Cart Drawer Component -->
+  <div id="cart-overlay" class="cart-drawer-overlay"></div>
+  <aside id="cart-drawer" class="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3><i class="fa-solid fa-bag-shopping" style="color: var(--primary);"></i> Your Cart</h3>
+      <button id="close-cart-drawer" class="modal-close">&times;</button>
+    </div>
+    <div id="cart-items-container" class="cart-drawer-body"></div>
+    <div id="cart-drawer-footer" class="cart-drawer-footer" style="display: none;"></div>
+  </aside>
+
+  <script type="module">
+    import { initNavigation } from './assets/js/navigation.js';
+    import { initRestaurantsPage } from './assets/js/restaurants.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavigation();
+      initRestaurantsPage();
+    });
+  </script>
+</body>
+
+</html>

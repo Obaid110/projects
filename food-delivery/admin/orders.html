@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Orders | Karachi Eats Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="admin-brand"><i class="fa-solid fa-utensils"></i> Karachi<span>Eats</span></div>
+      <ul class="admin-menu">
+        <li><a href="index.html" class="admin-menu-link"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+        <li><a href="restaurants.html" class="admin-menu-link"><i class="fa-solid fa-store"></i> Restaurants</a></li>
+        <li><a href="menus.html" class="admin-menu-link"><i class="fa-solid fa-bowl-food"></i> Food Menus</a></li>
+        <li><a href="orders.html" class="admin-menu-link active"><i class="fa-solid fa-receipt"></i> Orders</a></li>
+        <li><a href="categories.html" class="admin-menu-link"><i class="fa-solid fa-list"></i> Categories</a></li>
+        <li><a href="delivery-areas.html" class="admin-menu-link"><i class="fa-solid fa-map-location-dot"></i> Delivery Areas</a></li>
+        <li><a href="offers.html" class="admin-menu-link"><i class="fa-solid fa-tags"></i> Offers & Coupons</a></li>
+        <li><a href="settings.html" class="admin-menu-link"><i class="fa-solid fa-gear"></i> Settings</a></li>
+      </ul>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <div>
+          <h1>Order Management</h1>
+          <p class="text-muted">Process, track, and update customer orders across Karachi</p>
+        </div>
+      </div>
+
+      <!-- Filters Toolbar -->
+      <div style="display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;">
+        <input type="text" id="order-search-input" class="form-control" style="max-width: 320px;" placeholder="Search Order ID, Customer, or Phone..." />
+        <select id="order-status-filter" class="form-select" style="max-width: 200px;">
+          <option value="all">All Statuses</option>
+          <option value="Pending">Pending</option>
+          <option value="Preparing">Preparing</option>
+          <option value="Out for Delivery">Out for Delivery</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </div>
+
+      <div class="table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Date & Time</th>
+              <th>Customer</th>
+              <th>Restaurant</th>
+              <th>Total & Payment</th>
+              <th>Update Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="orders-tbody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../assets/js/admin/order-management.js"></script>
+</body>
+</html>
