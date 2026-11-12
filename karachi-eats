@@ -1,0 +1,3527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karachi Eats | Premium Food Delivery in Karachi, Pakistan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #ff385c;
+      --primary-hover: #e0284b;
+      --primary-light: #fff0f3;
+      --secondary: #ff5e3a;
+      --accent-gold: #f59e0b;
+      --dark: #12161a;
+      --dark-soft: #232a31;
+      --gray-600: #596573;
+      --gray-400: #8a96a3;
+      --gray-200: #e2e8f0;
+      --gray-100: #f1f5f9;
+      --gray-50: #f8fafc;
+      --white: #ffffff;
+      --success: #10b981;
+      --info: #0284c7;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 2px 6px rgba(0,0,0,0.04);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 16px 40px rgba(0,0,0,0.12);
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--dark);
+      background-color: var(--gray-50);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      outline: none;
+      border: none;
+    }
+
+    button {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top Banner Bar */
+    .top-promo-bar {
+      background: linear-gradient(90deg, #1e293b, #0f172a);
+      color: #cbd5e1;
+      font-size: 0.8rem;
+      padding: 8px 0;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      letter-spacing: 0.3px;
+    }
+    .top-promo-bar strong {
+      color: var(--accent-gold);
+    }
+    .top-promo-bar .badge {
+      background: rgba(255, 56, 92, 0.2);
+      color: #ff758f;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.72rem;
+    }
+
+    /* Header & Navigation */
+    header.main-header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+      transition: var(--transition);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .brand-logo .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 800;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 12px rgba(255, 56, 92, 0.35);
+    }
+    .brand-logo .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-logo .brand-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+    .brand-logo .brand-title span {
+      color: var(--primary);
+    }
+    .brand-logo .brand-tagline {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Location Selector in Header */
+    .header-location-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gray-100);
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--gray-200);
+      cursor: pointer;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--dark);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .header-location-pill:hover {
+      background: var(--white);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+    .header-location-pill svg {
+      color: var(--primary);
+    }
+
+    /* Search Bar in Header */
+    .header-search {
+      flex: 1;
+      max-width: 380px;
+      position: relative;
+    }
+    .header-search input {
+      width: 100%;
+      height: 42px;
+      padding: 0 16px 0 40px;
+      background: var(--gray-100);
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      border: 1.5px solid transparent;
+      color: var(--dark);
+      transition: var(--transition);
+    }
+    .header-search input:focus {
+      background: var(--white);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.15);
+    }
+    .header-search .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-400);
+      pointer-events: none;
+    }
+
+    /* Nav Action Items */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .btn-admin-portal {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      background: #0f172a;
+      color: #f8fafc;
+      transition: var(--transition);
+    }
+    .btn-admin-portal:hover {
+      background: #1e293b;
+      transform: translateY(-1px);
+    }
+
+    .cart-trigger-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: var(--primary-light);
+      color: var(--primary);
+      transition: var(--transition);
+    }
+    .cart-trigger-btn:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: scale(1.05);
+    }
+    .cart-counter-badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 800;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--white);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .btn-auth {
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 14px rgba(255, 56, 92, 0.3);
+      transition: var(--transition);
+    }
+    .btn-auth:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      font-size: 1.5rem;
+      color: var(--dark);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+      color: var(--white);
+      padding: 60px 0 75px;
+      overflow: hidden;
+    }
+    .hero-pattern {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: radial-gradient(rgba(255, 56, 92, 0.15) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+      opacity: 0.6;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+      z-index: 10;
+    }
+    .hero-content {
+      max-width: 620px;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fde047;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      letter-spacing: -1px;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, #ff4d6d, #ffa41b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: 1.12rem;
+      color: #94a3b8;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    /* Hero Search Box */
+    .hero-search-box {
+      background: var(--white);
+      padding: 8px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.35);
+      margin-bottom: 24px;
+      gap: 8px;
+    }
+    .hero-location-dropdown {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 16px;
+      border-right: 1.5px solid var(--gray-200);
+      color: var(--dark);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+    .hero-location-dropdown select {
+      background: transparent;
+      font-weight: 700;
+      color: var(--dark);
+      cursor: pointer;
+      font-size: 0.88rem;
+    }
+    .hero-search-input {
+      flex: 1;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: var(--dark);
+      background: transparent;
+    }
+    .btn-hero-search {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-hero-search:hover {
+      box-shadow: 0 6px 20px rgba(255, 56, 92, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .hero-tags {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: #94a3b8;
+    }
+    .hero-tag-item {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      color: #e2e8f0;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .hero-tag-item:hover {
+      background: rgba(255, 56, 92, 0.3);
+      color: var(--white);
+    }
+
+    /* Hero Media Visual */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    .hero-image-card {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      border: 3px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-image-card img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .hero-floating-stat {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      color: var(--dark);
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: floatSlow 3s ease-in-out infinite alternate;
+    }
+    .stat-1 {
+      bottom: -20px;
+      left: -20px;
+    }
+    .stat-2 {
+      top: 20px;
+      right: -20px;
+    }
+    @keyframes floatSlow {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
+
+    /* Food Categories Section */
+    .section-categories {
+      padding: 48px 0 20px;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 24px;
+    }
+    .section-title-wrap h2 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+    .section-title-wrap p {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      margin-top: 4px;
+    }
+
+    .categories-carousel {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      scrollbar-width: thin;
+    }
+    .categories-carousel::-webkit-scrollbar {
+      height: 6px;
+    }
+    .categories-carousel::-webkit-scrollbar-thumb {
+      background: var(--gray-200);
+      border-radius: var(--radius-full);
+    }
+
+    .category-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 95px;
+      padding: 12px 10px;
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition);
+      flex-shrink: 0;
+      text-align: center;
+    }
+    .category-chip:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+    .category-chip.active {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      box-shadow: 0 4px 12px rgba(255, 56, 92, 0.15);
+    }
+    .category-chip .category-img-wrap {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 8px;
+      background: var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .category-chip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .category-chip span {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    /* Promotional Deals Banner Grid */
+    .promos-section {
+      padding: 24px 0 36px;
+    }
+    .promos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .promo-banner-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      color: var(--white);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 170px;
+      background-size: cover;
+      background-position: center;
+    }
+    .promo-banner-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%);
+      z-index: 1;
+    }
+    .promo-banner-card > * {
+      position: relative;
+      z-index: 2;
+    }
+    .promo-badge-tag {
+      align-self: flex-start;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .promo-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+    .promo-desc {
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      margin-bottom: 14px;
+    }
+    .promo-action {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .promo-code-pill {
+      background: rgba(255,255,255,0.2);
+      border: 1px dashed rgba(255,255,255,0.6);
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    /* Filter Toolbar */
+    .filter-section {
+      background: var(--white);
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 16px 0;
+      position: sticky;
+      top: 72px;
+      z-index: 850;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .filter-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .filter-left-pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .filter-left-pills::-webkit-scrollbar {
+      display: none;
+    }
+    .filter-btn {
+      background: var(--gray-100);
+      color: var(--gray-600);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--gray-200);
+      transition: var(--transition);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .filter-btn:hover {
+      background: var(--white);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .filter-btn.active {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+
+    .filter-right-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sort-dropdown {
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--dark);
+      cursor: pointer;
+    }
+
+    /* Restaurant Marketplace Grid */
+    .marketplace-section {
+      padding: 36px 0 60px;
+    }
+    .results-count-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+      color: var(--gray-600);
+    }
+    .results-count-banner strong {
+      color: var(--dark);
+    }
+
+    .restaurant-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 24px;
+    }
+
+    /* Restaurant Card */
+    .restaurant-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--gray-200);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      position: relative;
+    }
+    .restaurant-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(255, 56, 92, 0.3);
+    }
+
+    .card-media-wrap {
+      position: relative;
+      height: 180px;
+      background: var(--gray-100);
+      overflow: hidden;
+    }
+    .card-media-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .restaurant-card:hover .card-media-wrap img {
+      transform: scale(1.05);
+    }
+
+    .discount-ribbon {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      letter-spacing: 0.3px;
+    }
+    .delivery-eta-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(18, 22, 26, 0.85);
+      backdrop-filter: blur(4px);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      gap: 8px;
+    }
+    .card-title {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.25;
+    }
+    .rating-badge {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      flex-shrink: 0;
+    }
+    .rating-badge svg {
+      color: var(--accent-gold);
+    }
+
+    .card-cuisines {
+      font-size: 0.82rem;
+      color: var(--gray-600);
+      margin-bottom: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card-location {
+      font-size: 0.8rem;
+      color: var(--gray-400);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 12px;
+    }
+
+    .card-meta-footer {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--gray-100);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gray-600);
+    }
+    .card-meta-footer .del-fee {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .btn-card-menu {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      transition: var(--transition);
+    }
+    .restaurant-card:hover .btn-card-menu {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Pagination / Load More */
+    .pagination-wrap {
+      margin-top: 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-load-more {
+      background: var(--white);
+      color: var(--dark);
+      border: 2px solid var(--gray-200);
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 12px 36px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .btn-load-more:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Modal Framework */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 22, 26, 0.7);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .modal-backdrop.show {
+      display: flex;
+      opacity: 1;
+    }
+    .modal-window {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 850px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.95);
+      transition: transform 0.25s ease;
+      position: relative;
+    }
+    .modal-backdrop.show .modal-window {
+      transform: scale(1);
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--white);
+      color: var(--dark);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      z-index: 20;
+      transition: var(--transition);
+    }
+    .modal-close-btn:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Restaurant Details & Food Menu Modal */
+    .restaurant-detail-banner {
+      height: 240px;
+      position: relative;
+      background: var(--dark);
+    }
+    .restaurant-detail-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.75;
+    }
+    .rest-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.85) 100%);
+    }
+    .rest-detail-header-info {
+      position: absolute;
+      bottom: 20px;
+      left: 24px;
+      right: 24px;
+      color: var(--white);
+    }
+    .rest-detail-header-info h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .rest-detail-header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: #e2e8f0;
+    }
+    .rest-detail-header-meta span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .menu-tabs-bar {
+      display: flex;
+      gap: 8px;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--gray-200);
+      overflow-x: auto;
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .menu-tab-btn {
+      background: var(--gray-100);
+      color: var(--gray-600);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+    .menu-tab-btn.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .menu-items-grid {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 18px;
+    }
+    .food-item-card {
+      display: flex;
+      gap: 14px;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+      transition: var(--transition);
+      align-items: center;
+    }
+    .food-item-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+    .food-item-info {
+      flex: 1;
+    }
+    .food-item-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .food-item-desc {
+      font-size: 0.78rem;
+      color: var(--gray-600);
+      margin-bottom: 8px;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .food-item-price {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .food-item-thumb {
+      width: 90px;
+      height: 90px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .food-item-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .btn-add-food {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      background: var(--white);
+      color: var(--primary);
+      border-radius: var(--radius-full);
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+    }
+    .btn-add-food:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Cart Slide-out Drawer */
+    .cart-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 22, 26, 0.5);
+      z-index: 1100;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .cart-drawer-backdrop.show {
+      display: block;
+      opacity: 1;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -450px;
+      bottom: 0;
+      width: 100%;
+      max-width: 420px;
+      background: var(--white);
+      z-index: 1200;
+      box-shadow: -8px 0 30px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cart-drawer.open {
+      right: 0;
+    }
+    .cart-drawer-header {
+      padding: 20px;
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-drawer-header h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-close-drawer {
+      background: none;
+      font-size: 1.3rem;
+      color: var(--gray-600);
+    }
+
+    .cart-items-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 20px;
+    }
+    .empty-cart-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gray-400);
+    }
+    .empty-cart-state svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 16px;
+      color: var(--gray-200);
+    }
+    .empty-cart-state h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .cart-item-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .cart-item-info {
+      flex: 1;
+    }
+    .cart-item-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .cart-item-rest {
+      font-size: 0.75rem;
+      color: var(--gray-400);
+    }
+    .cart-item-price {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .cart-qty-ctrl {
+      display: flex;
+      align-items: center;
+      background: var(--gray-100);
+      border-radius: var(--radius-full);
+      padding: 2px 6px;
+      gap: 8px;
+    }
+    .cart-qty-ctrl button {
+      background: var(--white);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--dark);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .cart-qty-ctrl span {
+      font-size: 0.85rem;
+      font-weight: 700;
+      min-width: 14px;
+      text-align: center;
+    }
+
+    .cart-footer-summary {
+      padding: 20px;
+      border-top: 1px solid var(--gray-200);
+      background: var(--gray-50);
+    }
+    .promo-input-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .promo-input-row input {
+      flex: 1;
+      height: 38px;
+      padding: 0 14px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .promo-input-row button {
+      background: var(--dark);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0 16px;
+      border-radius: var(--radius-sm);
+    }
+
+    .bill-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      margin-bottom: 6px;
+    }
+    .bill-row.total-row {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--dark);
+      border-top: 1px solid var(--gray-200);
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+    .bill-row.total-row .total-amount {
+      color: var(--primary);
+    }
+
+    .btn-checkout-now {
+      width: 100%;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: 1rem;
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 6px 20px rgba(255, 56, 92, 0.35);
+      transition: var(--transition);
+    }
+    .btn-checkout-now:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 25px rgba(255, 56, 92, 0.45);
+    }
+
+    /* Checkout Modal */
+    .checkout-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+    .form-group label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 10px 14px;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      color: var(--dark);
+      transition: var(--transition);
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      background: var(--white);
+      border-color: var(--primary);
+    }
+
+    .payment-option-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .payment-card {
+      border: 1.5px solid var(--gray-200);
+      padding: 12px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+    .payment-card.selected {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    /* WhatsApp Button Highlight */
+    .btn-whatsapp-order {
+      width: 100%;
+      height: 48px;
+      background: #25d366;
+      color: var(--white);
+      font-weight: 800;
+      font-size: 0.95rem;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      transition: var(--transition);
+    }
+    .btn-whatsapp-order:hover {
+      background: #20ba59;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+    }
+
+    /* Admin Dashboard Interface */
+    .admin-dashboard-view {
+      display: none;
+      padding: 30px 0 80px;
+      background: #f8fafc;
+      min-height: 80vh;
+    }
+    .admin-dashboard-view.active {
+      display: block;
+    }
+    .admin-header-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .admin-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+    .admin-stat-card {
+      background: var(--white);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-sm);
+    }
+    .admin-stat-card .label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gray-400);
+      text-transform: uppercase;
+    }
+    .admin-stat-card .value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-top: 4px;
+    }
+
+    .admin-tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1.5px solid var(--gray-200);
+      margin-bottom: 24px;
+    }
+    .admin-tab-btn {
+      padding: 10px 18px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      background: transparent;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .admin-tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .admin-table-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--gray-200);
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+    }
+    .admin-data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+    .admin-data-table th {
+      background: var(--gray-50);
+      padding: 12px 16px;
+      font-weight: 700;
+      color: var(--gray-600);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .admin-data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--gray-100);
+      color: var(--dark);
+    }
+    .admin-data-table tr:hover td {
+      background: #fafafa;
+    }
+
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .toast {
+      background: #0f172a;
+      color: var(--white);
+      padding: 12px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .toast.toast-success {
+      background: #065f46;
+      border: 1px solid #10b981;
+    }
+
+    /* Back To Top Floating Button */
+    .btn-back-to-top {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--dark);
+      box-shadow: var(--shadow-md);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 500;
+      transition: var(--transition);
+      border: 1px solid var(--gray-200);
+    }
+    .btn-back-to-top:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer.main-footer {
+      background: #0a0e12;
+      color: #94a3b8;
+      padding: 60px 0 24px;
+      border-top: 1px solid #1e293b;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 48px;
+    }
+    .footer-brand h3 {
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .footer-brand p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      max-width: 320px;
+    }
+    .footer-col h4 {
+      color: var(--white);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    .footer-bottom {
+      border-top: 1px solid #1e293b;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-content {
+        margin: 0 auto;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      .hero-tags {
+        justify-content: center;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-search, .header-location-pill, .nav-actions .nav-link {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: block;
+      }
+      .hero-title {
+        font-size: 2rem;
+      }
+      .hero-search-box {
+        flex-direction: column;
+        border-radius: var(--radius-md);
+        padding: 12px;
+      }
+      .hero-location-dropdown {
+        border-right: none;
+        border-bottom: 1px solid var(--gray-200);
+        padding-bottom: 8px;
+        width: 100%;
+      }
+      .btn-hero-search {
+        width: 100%;
+        justify-content: center;
+      }
+      .checkout-form-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Promo Bar -->
+  <div class="top-promo-bar">
+    <span>🇵🇰 Serving all of Karachi: Clifton, DHA, Gulshan, Nazimabad, Johar & beyond</span>
+    <span class="badge">FREE DELIVERY</span>
+    <span>Use code <strong>KARACHI50</strong> for 50% OFF your first meal!</span>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="main-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        
+        <!-- Logo -->
+        <div class="brand-logo" onclick="app.showCustomerView()">
+          <div class="logo-icon">KE</div>
+          <div class="brand-text">
+            <div class="brand-title">Karachi<span>Eats</span></div>
+            <div class="brand-tagline">City of Lights Cuisine</div>
+          </div>
+        </div>
+
+        <!-- Karachi Area Delivery Selector -->
+        <div class="header-location-pill" onclick="app.openAreaModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span id="currentAreaLabel">Gulshan-e-Iqbal</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+
+        <!-- Live Instant Search -->
+        <div class="header-search">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="globalSearchInput" placeholder="Search biryani, burgers, restaurants..." oninput="app.handleSearch(this.value)">
+        </div>
+
+        <!-- Action Items -->
+        <div class="nav-actions">
+          <a class="nav-link active" onclick="app.showCustomerView()">Marketplace</a>
+          <a class="nav-link" onclick="app.scrollToSection('offersSection')">Offers</a>
+          <button class="btn-admin-portal" onclick="app.toggleAdminDashboard()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span id="portalToggleText">Admin Portal</span>
+          </button>
+          
+          <!-- Cart Drawer Button -->
+          <button class="cart-trigger-btn" onclick="app.toggleCartDrawer()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            <div class="cart-counter-badge" id="headerCartCount">0</div>
+          </button>
+
+          <button class="btn-auth" onclick="app.openAuthModal()">Login / Sign Up</button>
+          <button class="mobile-menu-toggle" onclick="app.toggleCartDrawer()">☰</button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- CUSTOMER MAIN VIEW -->
+  <main id="customerView">
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-pattern"></div>
+      <div class="container">
+        <div class="hero-grid">
+          
+          <div class="hero-content">
+            <div class="hero-pill">
+              🔥 Over 200+ Verified Karachi Restaurants
+            </div>
+            <h1 class="hero-title">
+              Delicious Food Delivered to Your <span>Karachi</span> Doorstep
+            </h1>
+            <p class="hero-subtitle">
+              Order sizzling Biryani from Burns Road, piping hot Nihari from Saddar, woodfired pizza in Clifton, or juicy smashed burgers in DHA within minutes!
+            </p>
+
+            <!-- Search Bar in Hero -->
+            <div class="hero-search-box">
+              <div class="hero-location-dropdown">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <select id="heroAreaSelect" onchange="app.changeArea(this.value)">
+                  <!-- Populated by JS -->
+                </select>
+              </div>
+              <input type="text" class="hero-search-input" id="heroSearchInput" placeholder="Craving something special? e.g. Student Biryani, Karahi..." oninput="app.handleSearch(this.value)">
+              <button class="btn-hero-search" onclick="app.scrollToSection('marketplaceSection')">
+                <span>Find Food</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
+
+            <!-- Quick Popular Searches -->
+            <div class="hero-tags">
+              <span>Popular:</span>
+              <span class="hero-tag-item" onclick="app.quickFilterTag('Biryani')">Biryani</span>
+              <span class="hero-tag-item" onclick="app.quickFilterTag('Pizza')">Pizza</span>
+              <span class="hero-tag-item" onclick="app.quickFilterTag('Burgers')">Burgers</span>
+              <span class="hero-tag-item" onclick="app.quickFilterTag('Nihari')">Nihari</span>
+              <span class="hero-tag-item" onclick="app.quickFilterTag('Rolls')">Karachi Rolls</span>
+              <span class="hero-tag-item" onclick="app.quickFilterTag('Chinese')">Chinese</span>
+            </div>
+          </div>
+
+          <!-- Hero Food Card Visual -->
+          <div class="hero-visual">
+            <div class="hero-image-card">
+              <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=800&auto=format&fit=crop&q=80" alt="Authentic Karachi Biryani" onerror="this.src='https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800';">
+            </div>
+            <div class="hero-floating-stat stat-1">
+              <div style="font-size:1.8rem">⚡</div>
+              <div>
+                <strong style="font-size:0.95rem; display:block">30 Mins Avg</strong>
+                <span style="font-size:0.75rem; color:#64748b">Superfast Karachi Rider</span>
+              </div>
+            </div>
+            <div class="hero-floating-stat stat-2">
+              <div style="font-size:1.8rem">⭐</div>
+              <div>
+                <strong style="font-size:0.95rem; display:block">4.8 / 5 Rating</strong>
+                <span style="font-size:0.75rem; color:#64748b">50,000+ Happy Foodies</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Carousel Section -->
+    <section class="section-categories">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2>Explore Categories</h2>
+            <p>Hand-picked cuisines crafted to satisfy every Pakistani craving</p>
+          </div>
+        </div>
+
+        <div class="categories-carousel" id="categoriesCarousel">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Exclusive Deals & Offers Section -->
+    <section class="promos-section" id="offersSection">
+      <div class="container">
+        <div class="promos-grid">
+          
+          <div class="promo-banner-card" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600');">
+            <div>
+              <div class="promo-badge-tag">Weekend Treat</div>
+              <div class="promo-title">Flat 30% OFF Burgers & Steaks</div>
+              <div class="promo-desc">Top DHA & Clifton burger joints with instant delivery</div>
+            </div>
+            <div class="promo-action">
+              <span class="promo-code-pill" onclick="app.copyVoucher('BURGER30')">CODE: BURGER30 📋</span>
+            </div>
+          </div>
+
+          <div class="promo-banner-card" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?w=600');">
+            <div>
+              <div class="promo-badge-tag">Burns Road Special</div>
+              <div class="promo-title">Sizzling BBQ & Malai Boti Feast</div>
+              <div class="promo-desc">Get PKR 200 discount on family platters above PKR 1500</div>
+            </div>
+            <div class="promo-action">
+              <span class="promo-code-pill" onclick="app.copyVoucher('BBQ200')">CODE: BBQ200 📋</span>
+            </div>
+          </div>
+
+          <div class="promo-banner-card" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600');">
+            <div>
+              <div class="promo-badge-tag">Free Shipping</div>
+              <div class="promo-title">Zero Delivery Fee On All Pizzas</div>
+              <div class="promo-desc">Enjoy free delivery across Gulshan & Johar neighborhoods</div>
+            </div>
+            <div class="promo-action">
+              <span class="promo-code-pill" onclick="app.copyVoucher('FREEDEL')">CODE: FREEDEL 📋</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Sticky Filter & Sorting Toolbar -->
+    <section class="filter-section">
+      <div class="container">
+        <div class="filter-wrapper">
+          
+          <div class="filter-left-pills">
+            <button class="filter-btn active" onclick="app.setQuickFilter('all', this)">All (200+)</button>
+            <button class="filter-btn" onclick="app.setQuickFilter('popular', this)">🔥 Most Popular</button>
+            <button class="filter-btn" onclick="app.setQuickFilter('topRated', this)">⭐ Top Rated (4.5+)</button>
+            <button class="filter-btn" onclick="app.setQuickFilter('fastest', this)">⚡ Under 30 Mins</button>
+            <button class="filter-btn" onclick="app.setQuickFilter('freeDelivery', this)">🛵 Free Delivery</button>
+            <button class="filter-btn" onclick="app.setQuickFilter('discounts', this)">🏷️ Discounts</button>
+          </div>
+
+          <div class="filter-right-controls">
+            <label style="font-size:0.8rem; font-weight:700; color:var(--gray-600)">Sort by:</label>
+            <select class="sort-dropdown" id="sortSelect" onchange="app.handleSort(this.value)">
+              <option value="popular">Recommended</option>
+              <option value="ratingHigh">Highest Rating</option>
+              <option value="timeFast">Fastest Delivery</option>
+              <option value="feeLow">Lowest Delivery Fee</option>
+              <option value="minOrderLow">Lowest Minimum Order</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 200+ Restaurants Marketplace Grid -->
+    <section class="marketplace-section" id="marketplaceSection">
+      <div class="container">
+        
+        <div class="results-count-banner">
+          <div>
+            Showing <strong id="visibleCountDisplay">0</strong> of <strong id="totalCountDisplay">200+</strong> Karachi Restaurants
+            <span id="activeFilterDesc" style="color:var(--primary); font-weight:700; margin-left:8px"></span>
+          </div>
+          <div>
+            Delivery Area: <strong id="areaFeeNotice" style="color:var(--dark)">Gulshan-e-Iqbal (PKR 100)</strong>
+          </div>
+        </div>
+
+        <div class="restaurant-grid" id="restaurantGrid">
+          <!-- Dynamically Rendered 200+ Restaurants -->
+        </div>
+
+        <div class="pagination-wrap">
+          <button class="btn-load-more" id="btnLoadMore" onclick="app.loadMoreRestaurants()">
+            Load More Karachi Restaurants
+          </button>
+          <span style="font-size:0.82rem; color:var(--gray-400)">Tip: Filter by category above to narrow down results</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ADMIN DASHBOARD VIEW (Interactive Single-File Integration) -->
+  <div class="admin-dashboard-view" id="adminDashboardView">
+    <div class="container">
+      
+      <div class="admin-header-title">
+        <div>
+          <h2 style="font-size:2rem; font-weight:800; color:var(--dark)">Karachi Eats Admin Hub</h2>
+          <p style="color:var(--gray-600)">Manage 200+ restaurants, food menus, delivery fees, promo vouchers & live orders</p>
+        </div>
+        <button class="btn-hero-search" onclick="app.toggleAdminDashboard()">
+          ← Return to Customer Marketplace
+        </button>
+      </div>
+
+      <!-- Real-Time Metrics -->
+      <div class="admin-stats-grid">
+        <div class="admin-stat-card">
+          <div class="label">Total Restaurants</div>
+          <div class="value" id="adminStatRestCount">204</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="label">Total Food Items</div>
+          <div class="value" id="adminStatFoodCount">1,820</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="label">Total Orders Placed</div>
+          <div class="value" id="adminStatOrdersCount">0</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="label">Revenue Recorded</div>
+          <div class="value" style="color:var(--success)" id="adminStatRevenue">PKR 0</div>
+        </div>
+      </div>
+
+      <!-- Admin Tab Navigation -->
+      <div class="admin-tabs">
+        <button class="admin-tab-btn active" onclick="app.switchAdminTab('orders', this)">Live Customer Orders</button>
+        <button class="admin-tab-btn" onclick="app.switchAdminTab('restaurants', this)">Manage Restaurants</button>
+        <button class="admin-tab-btn" onclick="app.switchAdminTab('delivery', this)">Karachi Area Delivery Fees</button>
+        <button class="admin-tab-btn" onclick="app.switchAdminTab('promos', this)">Promotions & Vouchers</button>
+      </div>
+
+      <!-- TAB 1: Live Orders -->
+      <div id="adminTabOrders" class="admin-tab-content">
+        <div class="admin-table-card">
+          <table class="admin-data-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Karachi Area</th>
+                <th>Items Ordered</th>
+                <th>Total (PKR)</th>
+                <th>Payment</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="adminOrdersTableBody">
+              <!-- Populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 2: Restaurant Management -->
+      <div id="adminTabRestaurants" class="admin-tab-content" style="display:none">
+        <div style="display:flex; justify-content:space-between; margin-bottom:16px">
+          <input type="text" placeholder="Search admin restaurants..." style="padding:8px 16px; border:1px solid var(--gray-200); border-radius:var(--radius-sm); width:300px" oninput="app.searchAdminRestaurants(this.value)">
+          <button class="btn-auth" onclick="app.openNewRestaurantModal()">+ Add New Karachi Restaurant</button>
+        </div>
+        <div class="admin-table-card">
+          <table class="admin-data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Cuisine</th>
+                <th>Karachi Area</th>
+                <th>Delivery Fee</th>
+                <th>Rating</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminRestaurantsTableBody">
+              <!-- Populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 3: Delivery Charges by Area -->
+      <div id="adminTabDelivery" class="admin-tab-content" style="display:none">
+        <div class="admin-table-card">
+          <table class="admin-data-table">
+            <thead>
+              <tr>
+                <th>Karachi Delivery Area</th>
+                <th>Delivery Fee (PKR)</th>
+                <th>Estimated Delivery Time</th>
+                <th>Update Fee</th>
+              </tr>
+            </thead>
+            <tbody id="adminDeliveryTableBody">
+              <!-- Populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 4: Promo Codes -->
+      <div id="adminTabPromos" class="admin-tab-content" style="display:none">
+        <div class="admin-table-card">
+          <table class="admin-data-table">
+            <thead>
+              <tr>
+                <th>Voucher Code</th>
+                <th>Discount Description</th>
+                <th>Min Spend (PKR)</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="adminPromosTableBody">
+              <!-- Populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RESTAURANT DETAILS & FOOD MENU MODAL -->
+  <div class="modal-backdrop" id="restaurantDetailModal" onclick="if(event.target===this) app.closeModal('restaurantDetailModal')">
+    <div class="modal-window">
+      <button class="modal-close-btn" onclick="app.closeModal('restaurantDetailModal')">✕</button>
+      
+      <div class="restaurant-detail-banner">
+        <img id="modalRestCover" src="" alt="Restaurant Banner">
+        <div class="rest-banner-overlay"></div>
+        <div class="rest-detail-header-info">
+          <h2 id="modalRestTitle">Restaurant Name</h2>
+          <div class="rest-detail-header-meta">
+            <span id="modalRestCuisine">Cuisine</span>
+            <span>•</span>
+            <span id="modalRestArea">📍 Gulshan-e-Iqbal</span>
+            <span>•</span>
+            <span id="modalRestRating">⭐ 4.8</span>
+            <span>•</span>
+            <span id="modalRestTime">⏱️ 25-35 min</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-tabs-bar" id="menuTabsBar">
+        <button class="menu-tab-btn active" onclick="app.filterMenuCategory('All', this)">All Items</button>
+        <button class="menu-tab-btn" onclick="app.filterMenuCategory('Bestsellers', this)">🔥 Bestsellers</button>
+        <button class="menu-tab-btn" onclick="app.filterMenuCategory('Mains', this)">Main Courses</button>
+        <button class="menu-tab-btn" onclick="app.filterMenuCategory('Snacks', this)">Snacks & Sides</button>
+        <button class="menu-tab-btn" onclick="app.filterMenuCategory('Beverages', this)">Drinks & Desserts</button>
+      </div>
+
+      <div class="menu-items-grid" id="menuItemsGrid">
+        <!-- Rendered by JavaScript -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CART SLIDE-OUT DRAWER -->
+  <div class="cart-drawer-backdrop" id="cartDrawerBackdrop" onclick="app.toggleCartDrawer()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        Your Food Basket
+      </h3>
+      <button class="btn-close-drawer" onclick="app.toggleCartDrawer()">✕</button>
+    </div>
+
+    <div class="cart-items-body" id="cartItemsContainer">
+      <!-- Populated by JavaScript -->
+    </div>
+
+    <div class="cart-footer-summary" id="cartFooterSummary">
+      
+      <!-- Promo Voucher Input -->
+      <div class="promo-input-row">
+        <input type="text" id="voucherInput" placeholder="Voucher code (e.g. KARACHI50)">
+        <button onclick="app.applyVoucher()">Apply</button>
+      </div>
+
+      <div class="bill-row">
+        <span>Item Subtotal:</span>
+        <span id="cartSubtotalText">PKR 0</span>
+      </div>
+      <div class="bill-row">
+        <span>Delivery Fee (<span id="cartAreaName">Gulshan</span>):</span>
+        <span id="cartDeliveryFeeText">PKR 100</span>
+      </div>
+      <div class="bill-row" id="cartDiscountRow" style="display:none; color:var(--success)">
+        <span>Voucher Discount:</span>
+        <span id="cartDiscountText">- PKR 0</span>
+      </div>
+      <div class="bill-row total-row">
+        <span>Grand Total:</span>
+        <span class="total-amount" id="cartGrandTotalText">PKR 0</span>
+      </div>
+
+      <button class="btn-checkout-now" onclick="app.openCheckoutModal()">
+        Proceed to Checkout
+      </button>
+
+      <button class="btn-whatsapp-order" onclick="app.orderViaWhatsAppDirect()">
+        <span>📲 Order via WhatsApp</span>
+      </button>
+
+    </div>
+  </aside>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-backdrop" id="checkoutModal" onclick="if(event.target===this) app.closeModal('checkoutModal')">
+    <div class="modal-window" style="max-width:650px; padding:24px">
+      <button class="modal-close-btn" onclick="app.closeModal('checkoutModal')">✕</button>
+      
+      <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:6px">Complete Your Karachi Order</h2>
+      <p style="font-size:0.85rem; color:var(--gray-600); margin-bottom:20px">Please provide your Karachi delivery address and preferred payment method.</p>
+
+      <form id="checkoutForm" onsubmit="app.handlePlaceOrder(event)">
+        <div class="checkout-form-grid">
+          
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="custName" required placeholder="e.g. Syed Hamza">
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number (03XX-XXXXXXX) *</label>
+            <input type="tel" id="custPhone" required placeholder="03001234567" pattern="[0-9]{11}">
+          </div>
+
+          <div class="form-group full-width">
+            <label>Karachi Neighborhood / Area *</label>
+            <select id="checkoutAreaSelect" onchange="app.changeArea(this.value)">
+              <!-- Populated by JavaScript -->
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label>Complete House / Flat / Street Address *</label>
+            <input type="text" id="custAddress" required placeholder="Apartment / Flat number, Street, Block, Landmark">
+          </div>
+
+          <div class="form-group full-width">
+            <label>Google Maps Link / GPS Pin (Optional)</label>
+            <input type="url" id="custMapsLink" placeholder="https://maps.app.goo.gl/...">
+          </div>
+
+          <div class="form-group full-width">
+            <label>Special Delivery Instructions (Optional)</label>
+            <textarea id="custNotes" rows="2" placeholder="e.g. Gate bell is broken, please call upon arrival"></textarea>
+          </div>
+
+          <div class="form-group full-width">
+            <label>Select Payment Method *</label>
+            <div class="payment-option-cards">
+              <div class="payment-card selected" id="payCOD" onclick="app.selectPayment('COD')">
+                <span>💵 Cash on Delivery (COD)</span>
+              </div>
+              <div class="payment-card" id="payOnline" onclick="app.selectPayment('Online')">
+                <span>💳 JazzCash / EasyPaisa / Card</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="background:var(--gray-50); border:1px solid var(--gray-200); border-radius:var(--radius-sm); padding:14px; margin:16px 0">
+          <div class="bill-row">
+            <span>Payable Amount:</span>
+            <strong style="color:var(--primary); font-size:1.1rem" id="checkoutPayableText">PKR 0</strong>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-checkout-now">
+          Confirm & Place Order Now
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ORDER SUCCESS CONFIRMATION MODAL -->
+  <div class="modal-backdrop" id="orderSuccessModal" onclick="if(event.target===this) app.closeModal('orderSuccessModal')">
+    <div class="modal-window" style="max-width:540px; padding:32px; text-align:center">
+      <div style="width:72px; height:72px; background:#ecfdf5; color:#10b981; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:2.2rem; margin-bottom:16px">
+        ✓
+      </div>
+      <h2 style="font-size:1.8rem; font-weight:800; color:var(--dark); margin-bottom:6px">Order Confirmed!</h2>
+      <p style="color:var(--gray-600); font-size:0.9rem; margin-bottom:18px">
+        Your delicious food is being prepared. Your order identifier is:
+      </p>
+      
+      <div style="background:var(--primary-light); color:var(--primary); font-weight:800; font-size:1.3rem; padding:10px 20px; border-radius:var(--radius-md); display:inline-block; margin-bottom:20px; letter-spacing:1px" id="successOrderId">
+        #KHI-98421
+      </div>
+
+      <div style="text-align:left; background:var(--gray-50); padding:16px; border-radius:var(--radius-md); border:1px solid var(--gray-200); font-size:0.85rem; margin-bottom:20px" id="successOrderSummary">
+        <!-- Filled by JS -->
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:10px">
+        <button class="btn-whatsapp-order" onclick="app.sendWhatsAppForCurrentOrder()">
+          <span>📲 Send Confirmation via WhatsApp</span>
+        </button>
+        <button class="btn-hero-search" style="justify-content:center; background:var(--dark)" onclick="app.closeModal('orderSuccessModal')">
+          Track in Admin Hub / Order More
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LOCATION AREA PICKER MODAL -->
+  <div class="modal-backdrop" id="areaPickerModal" onclick="if(event.target===this) app.closeModal('areaPickerModal')">
+    <div class="modal-window" style="max-width:500px; padding:24px">
+      <button class="modal-close-btn" onclick="app.closeModal('areaPickerModal')">✕</button>
+      <h3 style="font-size:1.3rem; font-weight:800; margin-bottom:8px">Select Your Karachi Neighborhood</h3>
+      <p style="font-size:0.85rem; color:var(--gray-600); margin-bottom:16px">We calculate delivery charges and filter nearby restaurants based on your area.</p>
+      <div id="areaPickerGrid" style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTH MODAL -->
+  <div class="modal-backdrop" id="authModal" onclick="if(event.target===this) app.closeModal('authModal')">
+    <div class="modal-window" style="max-width:420px; padding:28px">
+      <button class="modal-close-btn" onclick="app.closeModal('authModal')">✕</button>
+      <h3 style="font-size:1.4rem; font-weight:800; margin-bottom:6px">Welcome to Karachi Eats</h3>
+      <p style="font-size:0.85rem; color:var(--gray-600); margin-bottom:20px">Login to track orders and save favorite Karachi restaurants.</p>
+      
+      <form onsubmit="event.preventDefault(); app.mockAuthSuccess()">
+        <div class="form-group">
+          <label>Mobile Number or Email</label>
+          <input type="text" required placeholder="03001234567 or email@domain.com">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn-checkout-now" style="margin-top:10px">
+          Continue
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button class="btn-back-to-top" id="btnBackToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <h3>Karachi<span>Eats</span></h3>
+          <p>
+            Karachi’s dedicated online food delivery platform. Celebrating the rich flavors, iconic food streets, and beloved culinary heritage of Pakistan's City of Lights.
+          </p>
+          <div style="display:flex; gap:12px; font-size:1.2rem">
+            <span>📘</span> <span>📸</span> <span>🐦</span> <span>💬</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Popular Areas</h4>
+          <ul class="footer-links">
+            <li><a onclick="app.changeArea('Gulshan-e-Iqbal')">Gulshan-e-Iqbal</a></li>
+            <li><a onclick="app.changeArea('DHA')">DHA (Phases 1-8)</a></li>
+            <li><a onclick="app.changeArea('Clifton')">Clifton & Boat Basin</a></li>
+            <li><a onclick="app.changeArea('North Nazimabad')">North Nazimabad</a></li>
+            <li><a onclick="app.changeArea('PECHS')">PECHS & Tariq Road</a></li>
+            <li><a onclick="app.changeArea('Saddar')">Saddar & Burns Road</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Top Cuisines</h4>
+          <ul class="footer-links">
+            <li><a onclick="app.filterByCategory('Biryani')">Sindhi Biryani</a></li>
+            <li><a onclick="app.filterByCategory('Pakistani Food')">Nihari & Karahi</a></li>
+            <li><a onclick="app.filterByCategory('BBQ')">Seekh Kabab & Tikka</a></li>
+            <li><a onclick="app.filterByCategory('Burgers')">Zinger & Beef Burgers</a></li>
+            <li><a onclick="app.filterByCategory('Chinese')">Desi Chinese</a></li>
+            <li><a onclick="app.filterByCategory('Desserts')">Kheer, Falooda & Sweets</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links">
+            <li><a onclick="app.openSupportToast()">24/7 Helpline: 021-111-EATS-00</a></li>
+            <li><a onclick="app.orderViaWhatsAppDirect()">Direct WhatsApp Help</a></li>
+            <li><a href="#marketplaceSection">FAQ & Ordering Guide</a></li>
+            <li><a href="#marketplaceSection">Privacy Policy</a></li>
+            <li><a href="#marketplaceSection">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Karachi Eats (Pvt.) Limited. All rights reserved. Built with pride in Karachi.</div>
+        <div>Currency: Pakistani Rupees (PKR) • WhatsApp Ordering Integrated</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Single-File Clean Vanilla JavaScript Engine -->
+  <script>
+    /**
+     * Karachi Eats - Production Client Application Engine
+     * Architecture: Single-file modular reactive controller
+     */
+
+    const app = (function () {
+      
+      // Configuration & State
+      const state = {
+        restaurants: [],
+        categories: [
+          { name: "All", icon: "🍽️", img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=160" },
+          { name: "Biryani", icon: "🍚", img: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=160" },
+          { name: "Burgers", icon: "🍔", img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=160" },
+          { name: "Pizza", icon: "🍕", img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=160" },
+          { name: "BBQ", icon: "🍢", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=160" },
+          { name: "Pakistani Food", icon: "🥘", img: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=160" },
+          { name: "Fast Food", icon: "🍟", img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=160" },
+          { name: "Chinese", icon: "🥡", img: "https://images.unsplash.com/photo-1525755662778-989d0524087e?w=160" },
+          { name: "Seafood", icon: "🦐", img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=160" },
+          { name: "Desserts", icon: "🍨", img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=160" },
+          { name: "Sandwiches", icon: "🥪", img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=160" },
+          { name: "Drinks", icon: "🥤", img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=160" },
+          { name: "Healthy Food", icon: "🥗", img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=160" }
+        ],
+        deliveryAreas: {
+          "Gulshan-e-Iqbal": { fee: 100, eta: "25-35 min" },
+          "DHA": { fee: 150, eta: "30-45 min" },
+          "Clifton": { fee: 140, eta: "25-40 min" },
+          "North Nazimabad": { fee: 110, eta: "30-40 min" },
+          "PECHS": { fee: 100, eta: "25-35 min" },
+          "Saddar": { fee: 90, eta: "20-35 min" },
+          "Gulistan-e-Johar": { fee: 120, eta: "30-45 min" },
+          "Bahadurabad": { fee: 90, eta: "20-30 min" },
+          "Federal B Area": { fee: 110, eta: "30-40 min" },
+          "Malir": { fee: 160, eta: "35-50 min" },
+          "Korangi": { fee: 180, eta: "40-55 min" },
+          "Nazimabad": { fee: 100, eta: "25-35 min" }
+        },
+        currentArea: "Gulshan-e-Iqbal",
+        cart: [],
+        appliedVoucher: null,
+        vouchers: [
+          { code: "KARACHI50", type: "percent", value: 50, minSpend: 600, label: "50% OFF (Up to PKR 300)" },
+          { code: "BURGER30", type: "percent", value: 30, minSpend: 800, label: "30% OFF Burgers" },
+          { code: "BBQ200", type: "flat", value: 200, minSpend: 1500, label: "PKR 200 OFF BBQ Feast" },
+          { code: "FREEDEL", type: "delivery", value: 0, minSpend: 400, label: "Free Karachi Delivery" }
+        ],
+        activeCategory: "All",
+        activeQuickFilter: "all",
+        activeSort: "popular",
+        searchQuery: "",
+        currentPage: 1,
+        itemsPerPage: 24,
+        selectedRestaurant: null,
+        selectedPayment: "COD",
+        businessWhatsApp: "923001234567",
+        lastCompletedOrder: null,
+        orders: []
+      };
+
+      /**
+       * PROCEDURAL GENERATOR FOR 200+ REALISTIC KARACHI RESTAURANTS
+       */
+      function generate200Restaurants() {
+        const baseKarachiBrands = [
+          // Biryani & Traditional
+          { name: "Student Biryani", cuisine: "Biryani, Pakistani", cat: "Biryani", img: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=600" },
+          { name: "Al-Rehman Biryani Kharadar", cuisine: "Biryani, Traditional", cat: "Biryani", img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600" },
+          { name: "Ghousia Nalli Biryani Liaquatabad", cuisine: "Nalli Biryani, Desi", cat: "Biryani", img: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600" },
+          { name: "Idrees Biryani Saddar", cuisine: "Authentic Biryani", cat: "Biryani", img: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=600" },
+          { name: "Farhan Biryani Pehlwan Goth", cuisine: "Spicy Biryani", cat: "Biryani", img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600" },
+          { name: "Javed Nihari Dastagir", cuisine: "Nihari, Maghaz, Nalli", cat: "Pakistani Food", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600" },
+          { name: "Zahid Nihari Tariq Road", cuisine: "Special Beef Nihari", cat: "Pakistani Food", img: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600" },
+          { name: "Sabir Nihari Burns Road", cuisine: "Traditional Nihari", cat: "Pakistani Food", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600" },
+          { name: "Kolachi Do Darya", cuisine: "Karahi, BBQ, Seafood", cat: "BBQ", img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600" },
+          { name: "Kababjees Do Darya", cuisine: "Steaks, BBQ, Platters", cat: "BBQ", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600" },
+          { name: "Waheed Kabab House Burns Road", cuisine: "Fry Kabab, Seekh Kabab", cat: "BBQ", img: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600" },
+          { name: "Ghaffar Kabab House REX", cuisine: "Gola Kabab, Malai Boti", cat: "BBQ", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600" },
+          { name: "Tooso Bahadurabad", cuisine: "Halwa Puri, Fast Food", cat: "Pakistani Food", img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600" },
+          { name: "Lal Qila Restaurant", cuisine: "Mughlai, BBQ, Buffet", cat: "Pakistani Food", img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600" },
+          // Burgers & Fast Food
+          { name: "Burger O'Clock", cuisine: "Gourmet Burgers, Fries", cat: "Burgers", img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600" },
+          { name: "Aussie Burger Company", cuisine: "Smash Burgers, Beef", cat: "Burgers", img: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=600" },
+          { name: "The Sauce Burger Cafe", cuisine: "Crispy Chicken, Beef", cat: "Burgers", img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600" },
+          { name: "Oh My Grill (OMG)", cuisine: "Grilled Gourmet Burgers", cat: "Burgers", img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600" },
+          { name: "Kaybees Fast Food", cuisine: "Club Sandwiches, Soft Ice Cream", cat: "Fast Food", img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600" },
+          { name: "Jan Broast", cuisine: "Golden Fried Chicken Broast", cat: "Fast Food", img: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600" },
+          { name: "Hot N Spicy Clifton", cuisine: "Paratha Rolls, BBQ", cat: "Sandwiches", img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600" },
+          { name: "Red Apple", cuisine: "Zinger Rolls, Fries, Juices", cat: "Sandwiches", img: "https://images.unsplash.com/photo-1509722747041-616f39b57569?w=600" },
+          { name: "Eats & Treats", cuisine: "Karachi Bun Kababs, Fries", cat: "Fast Food", img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600" },
+          // Pizza
+          { name: "14th Street Pizza Co.", cuisine: "New York Crust Pizza", cat: "Pizza", img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600" },
+          { name: "Broadway Pizza", cuisine: "Deep Dish & Thin Crust", cat: "Pizza", img: "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=600" },
+          { name: "California Pizza", cuisine: "Californian Style Pizza", cat: "Pizza", img: "https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=600" },
+          { name: "Famous O's Pizza", cuisine: "Artisanal Napoletana", cat: "Pizza", img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600" },
+          { name: "Pizza Max", cuisine: "Cheesy Crust Pizza", cat: "Pizza", img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600" },
+          // Chinese & Pan Asian
+          { name: "Ginsoy Extreme Chinese", cuisine: "Desi Chinese, Soups", cat: "Chinese", img: "https://images.unsplash.com/photo-1525755662778-989d0524087e?w=600" },
+          { name: "Chop Chop Wok", cuisine: "Wok Bowls, Noodles", cat: "Chinese", img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600" },
+          { name: "Bam-Bou Chinese", cuisine: "Szechuan, Manchurian", cat: "Chinese", img: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600" },
+          { name: "Mei Kong", cuisine: "Chinese & Thai Delicacies", cat: "Chinese", img: "https://images.unsplash.com/photo-1525755662778-989d0524087e?w=600" },
+          // Desserts & Sweets
+          { name: "Del Frio", cuisine: "Cakes, Waffles, Gelato", cat: "Desserts", img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600" },
+          { name: "Dhamthal Sweets & Bakers", cuisine: "Halwa Puri, Gulab Jamun", cat: "Desserts", img: "https://images.unsplash.com/photo-1579372786545-d24232daf58c?w=600" },
+          { name: "Rehmat-e-Shereen", cuisine: "Traditional Karachi Mithai", cat: "Desserts", img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600" },
+          { name: "Bella Vita", cuisine: "Italian Gelato, Pastries", cat: "Desserts", img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600" },
+          // Seafood
+          { name: "Rashid Seafood Kemari", cuisine: "Fried Fish, Prawn Karahi", cat: "Seafood", img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600" },
+          { name: "Yadgar Fish Saddar", cuisine: "Crispy Rahu, Surmai", cat: "Seafood", img: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=600" },
+          // Healthy & Drinks
+          { name: "Greeno Juice Bars", cuisine: "Fresh Juices, Smoothies", cat: "Drinks", img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600" },
+          { name: "Saladific Karachi", cuisine: "Keto Bowls, High-Protein Salads", cat: "Healthy Food", img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600" }
+        ];
+
+        const karachiAreas = Object.keys(state.deliveryAreas);
+        const discountBadges = ["20% OFF", "15% OFF", "30% OFF", "Flat PKR 150 OFF", "Buy 1 Get 1 Free", "Free Drink Deal", "Super Saver"];
+        const branchSuffixes = ["Express", "Signature", "Diner", "Kitchen", "Street Outlet", "Flagship", "Grill & Cafe", "Bites"];
+
+        const list = [];
+        let idCounter = 1;
+
+        // Loop to generate 200+ distinct restaurants across Karachi
+        for (let cycle = 0; cycle < 6; cycle++) {
+          for (let i = 0; i < baseKarachiBrands.length; i++) {
+            const base = baseKarachiBrands[i];
+            const area = karachiAreas[(idCounter + cycle) % karachiAreas.length];
+            const suffix = cycle === 0 ? "" : ` (${branchSuffixes[(idCounter + cycle) % branchSuffixes.length]} - ${area})`;
+            
+            const rating = (4.0 + ((idCounter * 7) % 10) / 10).toFixed(1);
+            const reviewsCount = 50 + (idCounter * 17) % 450;
+            const deliveryMin = 20 + ((idCounter * 3) % 25);
+            const deliveryTime = `${deliveryMin}-${deliveryMin + 15} min`;
+            const baseFee = state.deliveryAreas[area].fee;
+            const hasFreeDel = idCounter % 5 === 0;
+            const deliveryFee = hasFreeDel ? 0 : baseFee;
+            const minOrder = 300 + ((idCounter * 50) % 600);
+            const discount = (idCounter % 3 === 0) ? discountBadges[idCounter % discountBadges.length] : null;
+
+            list.push({
+              id: idCounter,
+              name: base.name + suffix,
+              cuisine: base.cuisine,
+              category: base.cat,
+              area: area,
+              rating: parseFloat(rating),
+              reviews: reviewsCount,
+              deliveryTime: deliveryTime,
+              deliveryFee: deliveryFee,
+              minOrder: minOrder,
+              discount: discount,
+              image: base.img,
+              menu: generateMenuForRestaurant(base.cat, base.name)
+            });
+
+            idCounter++;
+          }
+        }
+
+        return list; // Total ~ 210 restaurants
+      }
+
+      /**
+       * Generate realistic food items for each restaurant
+       */
+      function generateMenuForRestaurant(category, restName) {
+        const commonMenus = {
+          "Biryani": [
+            { id: 1, title: "Special Chicken Biryani (Double Masala)", desc: "Aromatic basmati rice cooked with succulent chicken, spiced potatoes, and Karachi spices.", price: 480, cat: "Bestsellers", img: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=200" },
+            { id: 2, title: "Special Beef Biryani", desc: "Tender beef chunks slow-cooked with basmati rice, prunes, and fried golden onions.", price: 540, cat: "Mains", img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200" },
+            { id: 3, title: "Nalli (Bone Marrow) Add-on", desc: "Simmered rich beef marrow tube to pour hot over biryani rice.", price: 250, cat: "Snacks", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=200" },
+            { id: 4, title: "Chilled Pakola Bottle (250ml)", desc: "Karachi's original ice-cream soda favorite since 1950.", price: 90, cat: "Beverages", img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=200" },
+            { id: 5, title: "Fresh Zeera Raita & Salad", desc: "Thick beaten curd with roasted cumin and fresh crunchy salad.", price: 80, cat: "Snacks", img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=200" }
+          ],
+          "Burgers": [
+            { id: 1, title: "Mighty Double Beef Melt Burger", desc: "Two smashed beef patties, cheddar slice, caramelized onions, signature burger sauce.", price: 790, cat: "Bestsellers", img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200" },
+            { id: 2, title: "Classic Karachi Zinger Supreme", desc: "Crunchy fried chicken fillet with spicy mayo and lettuce in toasted brioche bun.", price: 590, cat: "Mains", img: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=200" },
+            { id: 3, title: "Spicy Garlic Mayo Fries", desc: "Crispy potato fries loaded with zesty Karachi garlic mayo sauce.", price: 280, cat: "Snacks", img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=200" },
+            { id: 4, title: "Chilled Coke / Sprite Can (300ml)", desc: "Ice cold fizzy soda can.", price: 110, cat: "Beverages", img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=200" }
+          ],
+          "Pizza": [
+            { id: 1, title: "Karachi Chicken Tikka Pizza (Large)", desc: "Tandoori chicken boti, sliced onions, capsicum, mozzarella with spicy marinara sauce.", price: 1450, cat: "Bestsellers", img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" },
+            { id: 2, title: "Fajita Sensation Stuffed Crust", desc: "Cheesy stuffed crust with Mexican spiced chicken strips and green peppers.", price: 1550, cat: "Mains", img: "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=200" },
+            { id: 3, title: "Cheesy Garlic Breadsticks (4 pcs)", desc: "Freshly baked dough brushed with herb butter and melted mozzarella.", price: 380, cat: "Snacks", img: "https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?w=200" },
+            { id: 4, title: "Chocolate Lava Cake", desc: "Molten dark chocolate cake with warm gooey ganache center.", price: 420, cat: "Beverages", img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=200" }
+          ],
+          "BBQ": [
+            { id: 1, title: "Chicken Reshmi Kabab (4 pcs)", desc: "Melt-in-mouth chicken mince kababs blended with cream, green chilies and mild spices.", price: 620, cat: "Bestsellers", img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=200" },
+            { id: 2, title: "Beef Seekh Kabab Plate", desc: "Traditional charcoal grilled beef skewers with onion rings and mint dip.", price: 680, cat: "Mains", img: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200" },
+            { id: 3, title: "Tandoori Roghni Naan", desc: "Fluffy sesame seed naan brushed with pure desi ghee.", price: 80, cat: "Snacks", img: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=200" },
+            { id: 4, title: "Fresh Mint Lemonade (500ml)", desc: "Sweet and tangy refreshing lemonade with crushed mint leaves.", price: 210, cat: "Beverages", img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=200" }
+          ]
+        };
+
+        const defaultMenu = commonMenus[category] || [
+          { id: 1, title: `${restName} Special Platter`, desc: "House signature combination platter served with side sauces and piping hot bread.", price: 950, cat: "Bestsellers", img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200" },
+          { id: 2, title: "Traditional Handi / Karahi", desc: "Simmered in a clay pot with fresh tomatoes, ginger, and Karachi spice blend.", price: 850, cat: "Mains", img: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=200" },
+          { id: 3, title: "Crispy Samosas / Rolls (2 pcs)", desc: "Crispy fried golden appetizers with tangy tamarind chutney.", price: 180, cat: "Snacks", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200" },
+          { id: 4, title: "Karak Dudh Patti Chai", desc: "Authentic Karachi style strong milk tea brewed with cardamom.", price: 120, cat: "Beverages", img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=200" }
+        ];
+
+        return defaultMenu;
+      }
+
+      /**
+       * Initialization Lifecycle
+       */
+      function init() {
+        // Load saved state or generate fresh
+        const savedRestaurants = localStorage.getItem("ke_restaurants");
+        if (savedRestaurants) {
+          try {
+            state.restaurants = JSON.parse(savedRestaurants);
+          } catch (e) {
+            state.restaurants = generate200Restaurants();
+          }
+        } else {
+          state.restaurants = generate200Restaurants();
+          saveRestaurantsToStorage();
+        }
+
+        // Load saved cart
+        const savedCart = localStorage.getItem("ke_cart");
+        if (savedCart) {
+          try { state.cart = JSON.parse(savedCart); } catch (e) {}
+        }
+
+        // Load saved orders
+        const savedOrders = localStorage.getItem("ke_orders");
+        if (savedOrders) {
+          try { state.orders = JSON.parse(savedOrders); } catch (e) {}
+        }
+
+        // Render UI
+        renderCategories();
+        populateAreaDropdowns();
+        renderRestaurants();
+        updateCartBadge();
+        updateAreaDisplays();
+        renderAdminDashboard();
+
+        // Window scroll listener for back to top
+        window.addEventListener('scroll', () => {
+          const btn = document.getElementById('btnBackToTop');
+          if (btn) {
+            btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+          }
+        });
+      }
+
+      function saveRestaurantsToStorage() {
+        try {
+          localStorage.setItem("ke_restaurants", JSON.stringify(state.restaurants));
+        } catch (e) {
+          console.warn("Storage quota limit reached for full catalog.");
+        }
+      }
+
+      function saveCart() {
+        localStorage.setItem("ke_cart", JSON.stringify(state.cart));
+        updateCartBadge();
+        renderCartDrawer();
+      }
+
+      function saveOrders() {
+        localStorage.setItem("ke_orders", JSON.stringify(state.orders));
+        renderAdminOrdersTable();
+        updateAdminStats();
+      }
+
+      /**
+       * Category Carousel Rendering
+       */
+      function renderCategories() {
+        const container = document.getElementById("categoriesCarousel");
+        if (!container) return;
+
+        container.innerHTML = state.categories.map(cat => `
+          <div class="category-chip ${state.activeCategory === cat.name ? 'active' : ''}" onclick="app.filterByCategory('${cat.name}', this)">
+            <div class="category-img-wrap">
+              <img src="${cat.img}" alt="${cat.name}" onerror="this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=160'">
+            </div>
+            <span>${cat.name}</span>
+          </div>
+        `).join('');
+      }
+
+      function filterByCategory(categoryName, element) {
+        state.activeCategory = categoryName;
+        state.currentPage = 1;
+        renderCategories();
+        renderRestaurants();
+        scrollToSection('marketplaceSection');
+      }
+
+      /**
+       * Populate Delivery Area Dropdowns
+       */
+      function populateAreaDropdowns() {
+        const heroSelect = document.getElementById("heroAreaSelect");
+        const checkoutSelect = document.getElementById("checkoutAreaSelect");
+        const areaPickerGrid = document.getElementById("areaPickerGrid");
+
+        const areaOptions = Object.keys(state.deliveryAreas).map(area => {
+          const info = state.deliveryAreas[area];
+          return `<option value="${area}" ${area === state.currentArea ? 'selected' : ''}>${area} (PKR ${info.fee})</option>`;
+        }).join('');
+
+        if (heroSelect) heroSelect.innerHTML = areaOptions;
+        if (checkoutSelect) checkoutSelect.innerHTML = areaOptions;
+
+        if (areaPickerGrid) {
+          areaPickerGrid.innerHTML = Object.keys(state.deliveryAreas).map(area => {
+            const info = state.deliveryAreas[area];
+            const isSelected = area === state.currentArea;
+            return `
+              <div class="payment-card ${isSelected ? 'selected' : ''}" onclick="app.changeArea('${area}'); app.closeModal('areaPickerModal');">
+                <div>
+                  <strong>${area}</strong>
+                  <div style="font-size:0.75rem; color:var(--gray-600)">Fee: PKR ${info.fee} • ${info.eta}</div>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+      }
+
+      function changeArea(newArea) {
+        if (!state.deliveryAreas[newArea]) return;
+        state.currentArea = newArea;
+        updateAreaDisplays();
+        populateAreaDropdowns();
+        renderCartDrawer();
+        showToast(`Delivery location set to ${newArea}`, 'info');
+      }
+
+      function updateAreaDisplays() {
+        const info = state.deliveryAreas[state.currentArea];
+        const label = document.getElementById("currentAreaLabel");
+        const notice = document.getElementById("areaFeeNotice");
+        const cartArea = document.getElementById("cartAreaName");
+
+        if (label) label.textContent = state.currentArea;
+        if (notice) notice.textContent = `${state.currentArea} (PKR ${info.fee} • ${info.eta})`;
+        if (cartArea) cartArea.textContent = state.currentArea;
+      }
+
+      /**
+       * Filtering, Searching & Sorting Engine
+       */
+      function getFilteredRestaurants() {
+        return state.restaurants.filter(r => {
+          // Category filter
+          if (state.activeCategory !== "All" && r.category !== state.activeCategory) {
+            return false;
+          }
+
+          // Search Query
+          if (state.searchQuery.trim() !== "") {
+            const q = state.searchQuery.toLowerCase();
+            const matchName = r.name.toLowerCase().includes(q);
+            const matchCuisine = r.cuisine.toLowerCase().includes(q);
+            const matchArea = r.area.toLowerCase().includes(q);
+            const matchFood = r.menu.some(m => m.title.toLowerCase().includes(q));
+            if (!matchName && !matchCuisine && !matchArea && !matchFood) {
+              return false;
+            }
+          }
+
+          // Quick Filter Pills
+          if (state.activeQuickFilter === "topRated" && r.rating < 4.5) return false;
+          if (state.activeQuickFilter === "fastest") {
+            const minTime = parseInt(r.deliveryTime);
+            if (minTime > 25) return false;
+          }
+          if (state.activeQuickFilter === "freeDelivery" && r.deliveryFee > 0) return false;
+          if (state.activeQuickFilter === "discounts" && !r.discount) return false;
+
+          return true;
+        }).sort((a, b) => {
+          if (state.activeSort === "ratingHigh") return b.rating - a.rating;
+          if (state.activeSort === "timeFast") return parseInt(a.deliveryTime) - parseInt(b.deliveryTime);
+          if (state.activeSort === "feeLow") return a.deliveryFee - b.deliveryFee;
+          if (state.activeSort === "minOrderLow") return a.minOrder - b.minOrder;
+          return b.reviews - a.reviews; // Popular
+        });
+      }
+
+      /**
+       * Render Restaurants in Grid
+       */
+      function renderRestaurants() {
+        const grid = document.getElementById("restaurantGrid");
+        const visibleDisplay = document.getElementById("visibleCountDisplay");
+        const totalDisplay = document.getElementById("totalCountDisplay");
+        const btnMore = document.getElementById("btnLoadMore");
+
+        if (!grid) return;
+
+        const filtered = getFilteredRestaurants();
+        const displayLimit = state.currentPage * state.itemsPerPage;
+        const visibleList = filtered.slice(0, displayLimit);
+
+        if (totalDisplay) totalDisplay.textContent = `${filtered.length} (out of ${state.restaurants.length})`;
+        if (visibleDisplay) visibleDisplay.textContent = visibleList.length;
+
+        if (btnMore) {
+          btnMore.style.display = displayLimit >= filtered.length ? 'none' : 'inline-block';
+        }
+
+        if (visibleList.length === 0) {
+          grid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px;">
+              <div style="font-size: 3rem; margin-bottom: 12px">🔍</div>
+              <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--dark)">No Karachi eateries match your search</h3>
+              <p style="color: var(--gray-600); margin-top: 6px">Try clearing filters or search for another popular food item like Biryani or Pizza.</p>
+              <button class="btn-auth" style="margin-top: 16px" onclick="app.resetFilters()">Reset All Filters</button>
+            </div>
+          `;
+          return;
+        }
+
+        grid.innerHTML = visibleList.map(r => `
+          <div class="restaurant-card" onclick="app.openRestaurantModal(${r.id})">
+            <div class="card-media-wrap">
+              <img src="${r.image}" alt="${r.name}" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500';">
+              ${r.discount ? `<div class="discount-ribbon">${r.discount}</div>` : ''}
+              <div class="delivery-eta-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>${r.deliveryTime}</span>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="card-header-row">
+                <div class="card-title">${r.name}</div>
+                <div class="rating-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <span>${r.rating}</span>
+                </div>
+              </div>
+
+              <div class="card-cuisines">${r.cuisine}</div>
+              <div class="card-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>${r.area}, Karachi</span>
+              </div>
+
+              <div class="card-meta-footer">
+                <div>
+                  ${r.deliveryFee === 0 ? '<span class="del-fee">Free Delivery</span>' : `<span>Fee: PKR ${r.deliveryFee}</span>`}
+                  <span style="font-size:0.75rem; color:var(--gray-400); margin-left:4px">(Min PKR ${r.minOrder})</span>
+                </div>
+                <button class="btn-card-menu" onclick="event.stopPropagation(); app.openRestaurantModal(${r.id})">
+                  View Menu →
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function loadMoreRestaurants() {
+        state.currentPage++;
+        renderRestaurants();
+      }
+
+      function handleSearch(val) {
+        state.searchQuery = val;
+        state.currentPage = 1;
+        renderRestaurants();
+      }
+
+      function setQuickFilter(type, btn) {
+        state.activeQuickFilter = type;
+        state.currentPage = 1;
+        document.querySelectorAll('.filter-left-pills .filter-btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+        renderRestaurants();
+      }
+
+      function handleSort(sortVal) {
+        state.activeSort = sortVal;
+        renderRestaurants();
+      }
+
+      function quickFilterTag(tag) {
+        const input = document.getElementById("globalSearchInput");
+        if (input) input.value = tag;
+        handleSearch(tag);
+        scrollToSection('marketplaceSection');
+      }
+
+      function resetFilters() {
+        state.activeCategory = "All";
+        state.activeQuickFilter = "all";
+        state.searchQuery = "";
+        const sInput = document.getElementById("globalSearchInput");
+        if (sInput) sInput.value = "";
+        renderCategories();
+        renderRestaurants();
+      }
+
+      /**
+       * Restaurant Details & Menu Modal
+       */
+      function openRestaurantModal(id) {
+        const rest = state.restaurants.find(r => r.id === id);
+        if (!rest) return;
+
+        state.selectedRestaurant = rest;
+
+        document.getElementById("modalRestTitle").textContent = rest.name;
+        document.getElementById("modalRestCover").src = rest.image;
+        document.getElementById("modalRestCuisine").textContent = rest.cuisine;
+        document.getElementById("modalRestArea").textContent = `📍 ${rest.area}`;
+        document.getElementById("modalRestRating").textContent = `⭐ ${rest.rating} (${rest.reviews} reviews)`;
+        document.getElementById("modalRestTime").textContent = `⏱️ ${rest.deliveryTime}`;
+
+        renderFoodItems(rest.menu);
+        openModal("restaurantDetailModal");
+      }
+
+      function renderFoodItems(items) {
+        const grid = document.getElementById("menuItemsGrid");
+        if (!grid) return;
+
+        grid.innerHTML = items.map(item => `
+          <div class="food-item-card">
+            <div class="food-item-info">
+              <div class="food-item-title">${item.title}</div>
+              <div class="food-item-desc">${item.desc}</div>
+              <div class="food-item-price">PKR ${item.price}</div>
+            </div>
+            <div class="food-item-thumb">
+              <img src="${item.img}" alt="${item.title}" onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200';">
+              <button class="btn-add-food" onclick="app.addToCart(${state.selectedRestaurant.id}, ${item.id})">+ ADD</button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function filterMenuCategory(cat, btn) {
+        document.querySelectorAll('.menu-tabs-bar .menu-tab-btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+
+        if (!state.selectedRestaurant) return;
+        const items = cat === "All" 
+          ? state.selectedRestaurant.menu 
+          : state.selectedRestaurant.menu.filter(m => m.cat === cat);
+        
+        renderFoodItems(items);
+      }
+
+      /**
+       * Shopping Cart Engine
+       */
+      function addToCart(restId, itemId) {
+        const rest = state.restaurants.find(r => r.id === restId);
+        if (!rest) return;
+
+        const foodItem = rest.menu.find(m => m.id === itemId);
+        if (!foodItem) return;
+
+        // Check if item from another restaurant already exists in cart
+        if (state.cart.length > 0 && state.cart[0].restId !== restId) {
+          if (!confirm(`Your cart already contains delicious items from "${state.cart[0].restName}". Would you like to clear your cart and start a new order with "${rest.name}"?`)) {
+            return;
+          }
+          state.cart = [];
+        }
+
+        const existing = state.cart.find(c => c.itemId === itemId);
+        if (existing) {
+          existing.qty++;
+        } else {
+          state.cart.push({
+            restId: rest.id,
+            restName: rest.name,
+            itemId: foodItem.id,
+            title: foodItem.title,
+            price: foodItem.price,
+            qty: 1
+          });
+        }
+
+        saveCart();
+        showToast(`Added "${foodItem.title}" to cart! 🛒`, 'success');
+      }
+
+      function updateItemQty(itemId, delta) {
+        const item = state.cart.find(c => c.itemId === itemId);
+        if (!item) return;
+
+        item.qty += delta;
+        if (item.qty <= 0) {
+          state.cart = state.cart.filter(c => c.itemId !== itemId);
+        }
+
+        saveCart();
+      }
+
+      function updateCartBadge() {
+        const badge = document.getElementById("headerCartCount");
+        const totalItems = state.cart.reduce((sum, item) => sum + item.qty, 0);
+        if (badge) badge.textContent = totalItems;
+      }
+
+      function calculateCartTotals() {
+        const subtotal = state.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        const areaInfo = state.deliveryAreas[state.currentArea] || { fee: 100 };
+        
+        let deliveryFee = areaInfo.fee;
+        let discount = 0;
+
+        if (state.appliedVoucher) {
+          const v = state.appliedVoucher;
+          if (subtotal >= v.minSpend) {
+            if (v.type === "percent") {
+              discount = Math.min(Math.round(subtotal * (v.value / 100)), 350);
+            } else if (v.type === "flat") {
+              discount = v.value;
+            } else if (v.type === "delivery") {
+              deliveryFee = 0;
+            }
+          }
+        }
+
+        const grandTotal = Math.max(0, subtotal + deliveryFee - discount);
+
+        return { subtotal, deliveryFee, discount, grandTotal };
+      }
+
+      function renderCartDrawer() {
+        const container = document.getElementById("cartItemsContainer");
+        const footer = document.getElementById("cartFooterSummary");
+        if (!container || !footer) return;
+
+        if (state.cart.length === 0) {
+          container.innerHTML = `
+            <div class="empty-cart-state">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+              <h4>Your basket is hungry</h4>
+              <p style="font-size:0.85rem">Explore over 200 Karachi restaurants and add your favorite dishes.</p>
+            </div>
+          `;
+          footer.style.display = 'none';
+          return;
+        }
+
+        footer.style.display = 'block';
+
+        const totals = calculateCartTotals();
+
+        container.innerHTML = `
+          <div style="font-size:0.8rem; font-weight:700; color:var(--gray-400); margin-bottom:8px">
+            ORDERING FROM: <span style="color:var(--dark)">${state.cart[0].restName}</span>
+          </div>
+          ${state.cart.map(item => `
+            <div class="cart-item-row">
+              <div class="cart-item-info">
+                <div class="cart-item-name">${item.title}</div>
+                <div class="cart-item-price">PKR ${item.price} each</div>
+              </div>
+              <div class="cart-qty-ctrl">
+                <button onclick="app.updateItemQty(${item.itemId}, -1)">−</button>
+                <span>${item.qty}</span>
+                <button onclick="app.updateItemQty(${item.itemId}, 1)">+</button>
+              </div>
+              <strong style="font-size:0.85rem; color:var(--dark); min-width:65px; text-align:right">
+                PKR ${item.price * item.qty}
+              </strong>
+            </div>
+          `).join('')}
+        `;
+
+        document.getElementById("cartSubtotalText").textContent = `PKR ${totals.subtotal}`;
+        document.getElementById("cartDeliveryFeeText").textContent = `PKR ${totals.deliveryFee}`;
+        document.getElementById("cartGrandTotalText").textContent = `PKR ${totals.grandTotal}`;
+
+        const discRow = document.getElementById("cartDiscountRow");
+        if (totals.discount > 0) {
+          discRow.style.display = 'flex';
+          document.getElementById("cartDiscountText").textContent = `- PKR ${totals.discount}`;
+        } else {
+          discRow.style.display = 'none';
+        }
+      }
+
+      function toggleCartDrawer() {
+        const drawer = document.getElementById("cartDrawer");
+        const backdrop = document.getElementById("cartDrawerBackdrop");
+        if (!drawer || !backdrop) return;
+
+        const isOpen = drawer.classList.contains("open");
+        if (isOpen) {
+          drawer.classList.remove("open");
+          backdrop.classList.remove("show");
+        } else {
+          renderCartDrawer();
+          drawer.classList.add("open");
+          backdrop.classList.add("show");
+        }
+      }
+
+      function applyVoucher() {
+        const input = document.getElementById("voucherInput");
+        if (!input) return;
+
+        const code = input.value.trim().toUpperCase();
+        const voucher = state.vouchers.find(v => v.code === code);
+
+        if (!voucher) {
+          showToast("Invalid promo voucher code for Karachi Eats", "error");
+          return;
+        }
+
+        const totals = calculateCartTotals();
+        if (totals.subtotal < voucher.minSpend) {
+          showToast(`Voucher ${voucher.code} requires minimum order of PKR ${voucher.minSpend}`, "error");
+          return;
+        }
+
+        state.appliedVoucher = voucher;
+        renderCartDrawer();
+        showToast(`Promo "${voucher.code}" successfully applied! 🎉`, "success");
+      }
+
+      function copyVoucher(code) {
+        const input = document.getElementById("voucherInput");
+        if (input) input.value = code;
+        applyVoucher();
+        toggleCartDrawer();
+      }
+
+      /**
+       * Checkout & Order Placement Engine
+       */
+      function openCheckoutModal() {
+        if (state.cart.length === 0) {
+          showToast("Please add items to your cart first!", "error");
+          return;
+        }
+        
+        toggleCartDrawer(); // close drawer
+        const totals = calculateCartTotals();
+        document.getElementById("checkoutPayableText").textContent = `PKR ${totals.grandTotal}`;
+        openModal("checkoutModal");
+      }
+
+      function selectPayment(mode) {
+        state.selectedPayment = mode;
+        const cod = document.getElementById("payCOD");
+        const online = document.getElementById("payOnline");
+
+        if (mode === "COD") {
+          cod.classList.add("selected");
+          online.classList.remove("selected");
+        } else {
+          online.classList.add("selected");
+          cod.classList.remove("selected");
+        }
+      }
+
+      function handlePlaceOrder(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("custName").value.trim();
+        const phone = document.getElementById("custPhone").value.trim();
+        const address = document.getElementById("custAddress").value.trim();
+        const area = document.getElementById("checkoutAreaSelect").value;
+        const mapsLink = document.getElementById("custMapsLink").value.trim();
+        const notes = document.getElementById("custNotes").value.trim();
+
+        const totals = calculateCartTotals();
+        const orderId = `#KHI-${Math.floor(10000 + Math.random() * 90000)}`;
+
+        const orderObj = {
+          id: orderId,
+          date: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          customer: name,
+          phone: phone,
+          address: address,
+          area: area,
+          mapsLink: mapsLink,
+          notes: notes,
+          restName: state.cart[0].restName,
+          items: [...state.cart],
+          totals: totals,
+          payment: state.selectedPayment,
+          status: "Preparing"
+        };
+
+        state.orders.unshift(orderObj);
+        state.lastCompletedOrder = orderObj;
+        saveOrders();
+
+        // Clear cart
+        state.cart = [];
+        state.appliedVoucher = null;
+        saveCart();
+
+        closeModal("checkoutModal");
+
+        // Display Success Screen
+        document.getElementById("successOrderId").textContent = orderObj.id;
+        document.getElementById("successOrderSummary").innerHTML = `
+          <div><strong>Restaurant:</strong> ${orderObj.restName}</div>
+          <div><strong>Customer:</strong> ${orderObj.customer} (${orderObj.phone})</div>
+          <div><strong>Address:</strong> ${orderObj.address}, ${orderObj.area}</div>
+          <div style="margin-top:6px; border-top:1px dashed #cbd5e1; padding-top:6px">
+            <strong>Order Items:</strong><br>
+            ${orderObj.items.map(i => `${i.qty}x ${i.title} - PKR ${i.price * i.qty}`).join('<br>')}
+          </div>
+          <div style="margin-top:6px; font-weight:800; color:var(--primary)">
+            Grand Total: PKR ${orderObj.totals.grandTotal} (${orderObj.payment})
+          </div>
+        `;
+
+        openModal("orderSuccessModal");
+        showToast(`Order ${orderId} placed successfully!`, "success");
+      }
+
+      /**
+       * WhatsApp Ordering Integration
+       */
+      function buildWhatsAppMessage(order) {
+        const itemLines = order.items.map((it, idx) => 
+          `${idx + 1}. *${it.title}* x${it.qty} = PKR ${it.price * it.qty}`
+        ).join("\n");
+
+        return `🍔 *NEW FOOD ORDER - KARACHI EATS* 🍕
+━━━━━━━━━━━━━━━━━━━━━━
+*Order ID:* ${order.id}
+*Restaurant:* ${order.restName}
+*Status:* ${order.status}
+━━━━━━━━━━━━━━━━━━━━━━
+*Customer Details:*
+• *Name:* ${order.customer}
+• *Phone:* ${order.phone}
+• *Karachi Area:* ${order.area}
+• *Delivery Address:* ${order.address}
+${order.mapsLink ? `• *Google Maps:* ${order.mapsLink}\n` : ''}${order.notes ? `• *Instructions:* ${order.notes}\n` : ''}━━━━━━━━━━━━━━━━━━━━━━
+*Ordered Items:*
+${itemLines}
+━━━━━━━━━━━━━━━━━━━━━━
+*Subtotal:* PKR ${order.totals.subtotal}
+*Delivery Fee:* PKR ${order.totals.deliveryFee}
+${order.totals.discount > 0 ? `*Discount:* -PKR ${order.totals.discount}\n` : ''}*Grand Total:* *PKR ${order.totals.grandTotal}*
+*Payment Method:* ${order.payment}
+━━━━━━━━━━━━━━━━━━━━━━
+_Thank you for ordering with Karachi Eats!_`;
+      }
+
+      function orderViaWhatsAppDirect() {
+        if (state.cart.length === 0) {
+          showToast("Please add items to cart before ordering via WhatsApp", "error");
+          return;
+        }
+
+        const totals = calculateCartTotals();
+        const tempOrder = {
+          id: `#KHI-${Math.floor(10000 + Math.random() * 90000)}`,
+          restName: state.cart[0].restName,
+          status: "Pending WhatsApp Confirmation",
+          customer: "Direct WhatsApp Customer",
+          phone: "0300-XXXXXXX",
+          area: state.currentArea,
+          address: "As confirmed on WhatsApp chat",
+          mapsLink: "",
+          notes: "Direct Instant Order",
+          items: state.cart,
+          totals: totals,
+          payment: "Cash on Delivery"
+        };
+
+        const msg = buildWhatsAppMessage(tempOrder);
+        const url = `https://wa.me/${state.businessWhatsApp}?text=${encodeURIComponent(msg)}`;
+        window.open(url, '_blank');
+      }
+
+      function sendWhatsAppForCurrentOrder() {
+        if (!state.lastCompletedOrder) return;
+        const msg = buildWhatsAppMessage(state.lastCompletedOrder);
+        const url = `https://wa.me/${state.businessWhatsApp}?text=${encodeURIComponent(msg)}`;
+        window.open(url, '_blank');
+      }
+
+      /**
+       * Admin Dashboard Engine
+       */
+      function toggleAdminDashboard() {
+        const custView = document.getElementById("customerView");
+        const adminView = document.getElementById("adminDashboardView");
+        const toggleBtnText = document.getElementById("portalToggleText");
+
+        if (adminView.classList.contains("active")) {
+          adminView.classList.remove("active");
+          custView.style.display = "block";
+          toggleBtnText.textContent = "Admin Portal";
+        } else {
+          adminView.classList.add("active");
+          custView.style.display = "none";
+          toggleBtnText.textContent = "Customer View";
+          renderAdminDashboard();
+        }
+      }
+
+      function showCustomerView() {
+        const custView = document.getElementById("customerView");
+        const adminView = document.getElementById("adminDashboardView");
+        const toggleBtnText = document.getElementById("portalToggleText");
+        
+        adminView.classList.remove("active");
+        custView.style.display = "block";
+        toggleBtnText.textContent = "Admin Portal";
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function renderAdminDashboard() {
+        updateAdminStats();
+        renderAdminOrdersTable();
+        renderAdminRestaurantsTable();
+        renderAdminDeliveryTable();
+        renderAdminPromosTable();
+      }
+
+      function updateAdminStats() {
+        document.getElementById("adminStatRestCount").textContent = state.restaurants.length;
+        
+        const totalFood = state.restaurants.reduce((acc, r) => acc + r.menu.length, 0);
+        document.getElementById("adminStatFoodCount").textContent = totalFood;
+        
+        document.getElementById("adminStatOrdersCount").textContent = state.orders.length;
+
+        const rev = state.orders.reduce((sum, o) => sum + o.totals.grandTotal, 0);
+        document.getElementById("adminStatRevenue").textContent = `PKR ${rev.toLocaleString()}`;
+      }
+
+      function switchAdminTab(tabName, btn) {
+        document.querySelectorAll('.admin-tabs .admin-tab-btn').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+
+        document.getElementById("adminTabOrders").style.display = tabName === 'orders' ? 'block' : 'none';
+        document.getElementById("adminTabRestaurants").style.display = tabName === 'restaurants' ? 'block' : 'none';
+        document.getElementById("adminTabDelivery").style.display = tabName === 'delivery' ? 'block' : 'none';
+        document.getElementById("adminTabPromos").style.display = tabName === 'promos' ? 'block' : 'none';
+      }
+
+      function renderAdminOrdersTable() {
+        const tbody = document.getElementById("adminOrdersTableBody");
+        if (!tbody) return;
+
+        if (state.orders.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:24px; color:var(--gray-400)">No customer orders received yet. Place an order in marketplace to test!</td></tr>`;
+          return;
+        }
+
+        tbody.innerHTML = state.orders.map(o => `
+          <tr>
+            <td><strong>${o.id}</strong><br><span style="font-size:0.75rem; color:var(--gray-400)">${o.date}</span></td>
+            <td>${o.customer}<br><span style="font-size:0.75rem; color:var(--gray-400)">${o.phone}</span></td>
+            <td>${o.area}</td>
+            <td>${o.items.map(i => `${i.qty}x ${i.title}`).join(', ')}</td>
+            <td><strong>PKR ${o.totals.grandTotal}</strong></td>
+            <td>${o.payment}</td>
+            <td>
+              <select style="padding:4px 8px; border-radius:4px; font-weight:700; background:var(--gray-100)" onchange="app.updateOrderStatus('${o.id}', this.value)">
+                <option value="Preparing" ${o.status === 'Preparing' ? 'selected' : ''}>Preparing</option>
+                <option value="Out for Delivery" ${o.status === 'Out for Delivery' ? 'selected' : ''}>Out for Delivery</option>
+                <option value="Delivered" ${o.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
+                <option value="Cancelled" ${o.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
+              </select>
+            </td>
+            <td>
+              <button style="background:#25d366; color:#fff; padding:4px 8px; border-radius:4px; font-weight:700; font-size:0.75rem" onclick="app.sendWhatsAppForOrder('${o.id}')">WA Chat</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      function updateOrderStatus(orderId, newStatus) {
+        const order = state.orders.find(o => o.id === orderId);
+        if (order) {
+          order.status = newStatus;
+          saveOrders();
+          showToast(`Order ${orderId} marked as ${newStatus}`, "info");
+        }
+      }
+
+      function sendWhatsAppForOrder(orderId) {
+        const order = state.orders.find(o => o.id === orderId);
+        if (order) {
+          const msg = buildWhatsAppMessage(order);
+          window.open(`https://wa.me/${state.businessWhatsApp}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+      }
+
+      function renderAdminRestaurantsTable() {
+        const tbody = document.getElementById("adminRestaurantsTableBody");
+        if (!tbody) return;
+
+        // Show first 40 for speed in admin view
+        const sample = state.restaurants.slice(0, 40);
+        tbody.innerHTML = sample.map(r => `
+          <tr>
+            <td>#${r.id}</td>
+            <td><strong>${r.name}</strong></td>
+            <td>${r.cuisine}</td>
+            <td>${r.area}</td>
+            <td>PKR ${r.deliveryFee}</td>
+            <td>⭐ ${r.rating}</td>
+            <td>
+              <button style="color:var(--primary); font-weight:700; margin-right:8px" onclick="app.deleteRestaurant(${r.id})">Delete</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      function deleteRestaurant(id) {
+        if (!confirm("Are you sure you want to delete this Karachi restaurant?")) return;
+        state.restaurants = state.restaurants.filter(r => r.id !== id);
+        saveRestaurantsToStorage();
+        renderRestaurants();
+        renderAdminDashboard();
+        showToast("Restaurant deleted successfully", "info");
+      }
+
+      function openNewRestaurantModal() {
+        const name = prompt("Enter Restaurant Name (e.g. Daily Karachi Grill):");
+        if (!name) return;
+        const cuisine = prompt("Enter Cuisines (e.g. BBQ, Karahi):") || "Pakistani Food";
+        const area = prompt("Enter Karachi Area (e.g. DHA, Gulshan, Clifton):") || "Gulshan-e-Iqbal";
+
+        const newId = state.restaurants.length + 1;
+        const newRest = {
+          id: newId,
+          name: name,
+          cuisine: cuisine,
+          category: "Pakistani Food",
+          area: area,
+          rating: 4.8,
+          reviews: 1,
+          deliveryTime: "30-40 min",
+          deliveryFee: 100,
+          minOrder: 400,
+          discount: "NEW",
+          image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500",
+          menu: generateMenuForRestaurant("BBQ", name)
+        };
+
+        state.restaurants.unshift(newRest);
+        saveRestaurantsToStorage();
+        renderRestaurants();
+        renderAdminDashboard();
+        showToast(`Added "${name}" to Karachi Eats catalog!`, "success");
+      }
+
+      function renderAdminDeliveryTable() {
+        const tbody = document.getElementById("adminDeliveryTableBody");
+        if (!tbody) return;
+
+        tbody.innerHTML = Object.keys(state.deliveryAreas).map(area => {
+          const info = state.deliveryAreas[area];
+          return `
+            <tr>
+              <td><strong>${area}</strong></td>
+              <td>PKR ${info.fee}</td>
+              <td>${info.eta}</td>
+              <td>
+                <button style="background:var(--primary); color:#fff; padding:4px 10px; border-radius:4px; font-size:0.75rem; font-weight:700" onclick="app.editDeliveryFee('${area}')">Change Fee</button>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      function editDeliveryFee(area) {
+        const current = state.deliveryAreas[area].fee;
+        const newFee = prompt(`Enter new delivery fee for ${area} in PKR:`, current);
+        if (newFee !== null && !isNaN(newFee)) {
+          state.deliveryAreas[area].fee = parseInt(newFee);
+          populateAreaDropdowns();
+          updateAreaDisplays();
+          renderAdminDeliveryTable();
+          showToast(`Delivery fee for ${area} updated to PKR ${newFee}`, "success");
+        }
+      }
+
+      function renderAdminPromosTable() {
+        const tbody = document.getElementById("adminPromosTableBody");
+        if (!tbody) return;
+
+        tbody.innerHTML = state.vouchers.map(v => `
+          <tr>
+            <td><strong style="color:var(--primary)">${v.code}</strong></td>
+            <td>${v.label}</td>
+            <td>PKR ${v.minSpend}</td>
+            <td><span style="color:#10b981; font-weight:700">Active</span></td>
+          </tr>
+        `).join('');
+      }
+
+      /**
+       * UI Modal Helpers & Toasts
+       */
+      function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) modal.classList.add("show");
+      }
+
+      function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) modal.classList.remove("show");
+      }
+
+      function openAreaModal() {
+        openModal("areaPickerModal");
+      }
+
+      function openAuthModal() {
+        openModal("authModal");
+      }
+
+      function mockAuthSuccess() {
+        closeModal("authModal");
+        showToast("Logged in successfully! Welcome back.", "success");
+      }
+
+      function openSupportToast() {
+        showToast("Connecting to Karachi Eats 24/7 Helpline: 021-111-EATS-00", "info");
+      }
+
+      function showToast(msg, type = "info") {
+        const container = document.getElementById("toastContainer");
+        if (!container) return;
+
+        const toast = document.createElement("div");
+        toast.className = `toast ${type === 'success' ? 'toast-success' : ''}`;
+        toast.innerHTML = `<span>${type === 'success' ? '✓' : 'ℹ️'}</span> <span>${msg}</span>`;
+
+        container.appendChild(toast);
+        setTimeout(() => toast.classList.add("show"), 10);
+
+        setTimeout(() => {
+          toast.classList.remove("show");
+          setTimeout(() => toast.remove(), 300);
+        }, 3200);
+      }
+
+      function scrollToSection(id) {
+        const elem = document.getElementById(id);
+        if (elem) {
+          elem.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+
+      // Public API
+      return {
+        init,
+        filterByCategory,
+        handleSearch,
+        setQuickFilter,
+        handleSort,
+        quickFilterTag,
+        resetFilters,
+        loadMoreRestaurants,
+        openRestaurantModal,
+        filterMenuCategory,
+        addToCart,
+        updateItemQty,
+        toggleCartDrawer,
+        applyVoucher,
+        copyVoucher,
+        changeArea,
+        openAreaModal,
+        openCheckoutModal,
+        selectPayment,
+        handlePlaceOrder,
+        orderViaWhatsAppDirect,
+        sendWhatsAppForCurrentOrder,
+        toggleAdminDashboard,
+        showCustomerView,
+        switchAdminTab,
+        updateOrderStatus,
+        sendWhatsAppForOrder,
+        deleteRestaurant,
+        openNewRestaurantModal,
+        editDeliveryFee,
+        openModal,
+        closeModal,
+        openAuthModal,
+        mockAuthSuccess,
+        openSupportToast,
+        scrollToSection
+      };
+
+    })();
+
+    // Initialize once DOM is ready
+    window.addEventListener("DOMContentLoaded", app.init);
+  </script>
+</body>
+</html>
